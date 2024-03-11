@@ -1,4 +1,164 @@
-body {
-    color: pink;
-    background-color: #fdfdfd;
+.intr {
+	width: 100%;
+	height: 31.25rem;
+	padding: 2rem;
+	color: var(--main);
+	background: url('./assets/index/intr/1.jpg');
+	background-size: cover !important;
+	background-position: center !important;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-start;
+	gap: 2rem;
+
+	.intr-h {
+		font-weight: bold;
+		font-size: 1.75rem;
+	}
+
+	.btns {
+		display: flex;
+		gap: 1rem;
+	}
+
+	@media (max-width: 700px) {
+		.btns {
+			flex-wrap: wrap;
+			text-align: center;
+		}
+
+		.intr-h {
+			font-size: 1.25rem;
+		}
+	}
+}
+
+.categories {
+	display: grid;
+	gap: 2rem;
+
+	.card img {
+		margin-bottom: 1.25rem;
+	}
+
+	.cards {
+		display: flex;
+		gap: 1rem;
+		align-items: flex-start;
+		justify-content: space-between;
+	}
+
+	@media (max-width: 960px) {
+		.cards {
+			min-width: 0px;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+	}
+
+	@media (max-width: 350px) {
+		.card {
+			width: 14rem;
+		}
+	}
+}
+
+.sale {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+	padding: 2rem;
+
+	color: var(--white);
+	background-color: var(--main);
+
+	.text {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	img {
+		width: 4.7rem;
+		height: 2.8rem;
+	}
+
+	@media (max-width: 500px) {
+		align-items: center;
+		flex-wrap: wrap;
+	}
+}
+
+.collections {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 2rem;
+
+	.coll {
+		display: grid;
+		gap: 1.25rem;
+	}
+
+	.image {
+		height: 31.25rem;
+	}
+
+	@media (max-width: 900px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.gift {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	padding: 2rem;
+
+	background-color: var(--main);
+
+	.text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 1.25rem;
+
+		color: var(--white);
+
+		.btn {
+			width: fit-content;
+			color: inherit;
+			border: 0.1rem solid var(--white);
+			padding: 1rem;
+		}
+
+		.btn:hover {
+			color: var(--main);
+			background-color: var(--white);
+		}
+	}
+
+	@media (max-width: 900px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.inspo {
+	overflow: hidden;
+	padding: 2rem;
+
+	color: var(--white);
+	background-color: var(--main);
+
+	.h2 {
+		margin-bottom: 2rem;
+	}
+
+	.images {
+		display: flex;
+		gap: 1rem;
+		padding-bottom: 1rem;
+		overflow-x: scroll;
+	}
 }
