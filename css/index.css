@@ -3,7 +3,7 @@
 	height: 31.25rem;
 	padding: 2rem;
 	color: var(--main);
-	background: url('./assets/index/intr/1.jpg');
+	background: url('../assets/index/intr/1.jpg');
 	background-size: cover !important;
 	background-position: center !important;
 
