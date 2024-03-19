@@ -1,0 +1,42 @@
+.catalog {
+	display: grid;
+	gap: 2rem;
+}
+
+.metal-container {
+	width: min-content;
+	position: relative;
+}
+
+.metal-container::after {
+	position: absolute;
+	top: 0;
+	left: 100%;
+	content: '▼';
+	font-size: 0.7rem;
+}
+
+.cards {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(4, 1fr);
+	place-content: center;
+
+	.card {
+		display: grid;
+		gap: 1rem;
+		text-align: center;
+	}
+
+	@media (max-width: 800px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media (max-width: 600px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 500px) {
+		grid-template-columns: 1fr;
+	}
+}

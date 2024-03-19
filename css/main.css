@@ -153,6 +153,29 @@ textarea::placeholder {
 	font-size: inherit;
 }
 
+select {
+	display: block;
+	width: fit-content;
+	cursor: pointer;
+	background-color: var(--white);
+	padding: 0;
+	border: none;
+	font: inherit;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+}
+
+select:focus-visible {
+	outline: none;
+}
+
+option {
+	background-color: var(--white);
+	font: inherit;
+}
+
 .logo > * {
 	/* since links are inline */
 	display: block;
@@ -216,9 +239,8 @@ header {
 	}
 
 	@media (max-width: 1230px) {
-		.store-info,
-		nav {
-			flex-wrap: wrap;
+		.store-info {
+			flex-direction: column;
 		}
 	}
 
@@ -227,6 +249,10 @@ header {
 			grid-template-columns: 1fr;
 			place-items: center;
 			gap: 2rem;
+		}
+
+		nav {
+			flex-direction: column;
 		}
 
 		.logo {
