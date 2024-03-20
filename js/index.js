@@ -29,12 +29,12 @@ renderColls = () => {
 
 	let items = [
 		{
-			name: `Украшения YeonHwa`,
-			description: `Пришло время обновить свою шкатулку с украшениями, добавив в нее самые актуальные вещи.`,
+			name: ``,
+			description: ``,
 		},
 		{
-			name: `Коллекция HwaYang`,
-			description: `Откройте для себя изысканные ювелирные украшения, созданные для того, чтобы передать особый стиль и историю.`,
+			name: ``,
+			description: ``,
 		},
 	];
 
@@ -67,5 +67,5 @@ renderPhotos = () => {
 };
 
 renderCards();
-renderColls();
+// renderColls();
 renderPhotos();
