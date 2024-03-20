@@ -42,7 +42,7 @@ footer.innerHTML += `
     <a href="./index.html" class="h1">boseok</a>
   </div>
   <section>
-    <a href="#" class="bold">Категории</a>
+    <p class="bold">Категории</p>
     <a href="./earrings.html" class="small">Серьги</a>
     <a href="./rings.html" class="small">Кольца</a>
     <a href="./jewerly.html" class="small">Ювелирные изделия</a>
