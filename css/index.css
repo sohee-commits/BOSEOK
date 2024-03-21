@@ -39,20 +39,24 @@
 	display: grid;
 	gap: 2rem;
 
+	.card {
+		width: 100%;
+	}
+
 	.card img {
 		margin-bottom: 1.25rem;
 	}
 
 	.cards {
 		display: flex;
-		gap: 1rem;
+		gap: 2rem;
 		align-items: flex-start;
 		justify-content: space-between;
 	}
 
 	@media (max-width: 960px) {
 		.cards {
-			min-width: 0px;
+			min-width: 1rem;
 			justify-content: center;
 			flex-wrap: wrap;
 		}
