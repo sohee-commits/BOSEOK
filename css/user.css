@@ -1,0 +1,19 @@
+.user-info {
+	display: grid;
+	gap: 1.25rem;
+
+	label[for='send-ads'] {
+		display: flex;
+		gap: 0.5rem;
+	}
+}
+
+.user {
+	display: grid;
+	gap: 1.25rem;
+}
+
+.input {
+	border: 0.1rem solid var(--lgray);
+	padding: 1rem;
+}
