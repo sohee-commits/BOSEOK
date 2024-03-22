@@ -20,7 +20,7 @@ header.innerHTML += `
       <a href="./login.html">
         <img src="./assets/icons/user.png" alt="icon" />
       </a>
-      <a href="#"><img src="./assets/icons/cart.png" alt="icon" /></a>
+      <a href="./cart.html"><img src="./assets/icons/cart.png" alt="icon" /></a>
 
       <div class="currency inner">
         <img src="./assets/icons/rub.png" alt="icon" />

@@ -100,6 +100,10 @@ button {
 	font-family: inherit;
 	font-size: inherit;
 	font-weight: bold;
+	border: none;
+	color: inherit;
+	background: none;
+	cursor: pointer;
 }
 
 .btn-primary {
@@ -351,6 +355,10 @@ footer {
 
 	@media (max-width: 1000px) {
 		flex-wrap: wrap;
+	}
+
+	@media (max-width: 500px) {
+		flex-direction: column;
 	}
 }
 
