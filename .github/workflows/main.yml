@@ -16,4 +16,4 @@ jobs:
           server: '31.129.99.31'
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-          server-dir: '/web/1is-a12.12is.ru/public_html'
+          server-dir: '/web/1is-a12.12is.ru/public_html/'
