@@ -112,11 +112,11 @@ button {
 	font-weight: bold;
 	color: #fdfdfd;
 	background-color: var(--main);
+	border: 0.1rem solid var(--main);
 	padding: 1rem;
 }
 
 .btn-primary:hover {
-	cursor: pointer;
 	color: var(--main);
 	background: none;
 	border: 0.1rem solid var(--main);
@@ -138,6 +138,7 @@ button {
 }
 
 [class^='btn'] {
+	cursor: pointer;
 	height: min-content;
 }
 
