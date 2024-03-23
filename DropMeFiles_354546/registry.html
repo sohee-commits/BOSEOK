@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="registry.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <button onclick="window.location.href='main.html'" id="back">Вернуться на главную</button>
+    <img src="img/logo.png" alt="logo" class="logo img-fluid">
+    <div class="container-fluid">
+        
+
+        <div class="offset-md-4 col-md-4 offset-sm-3 col-sm-6">
+            <div class="form-container">
+                <h3 class="title">Регистрация</h3>
+        <form  action="register.php" class="form-horizontal" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Логин" name="login">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Имя" name="name">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Возраст" name="age">
+            </div>
+            <div class="form-group">
+                <input type="date" class="form-control" placeholder="Дата рождения" name="date">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Класс" name="class">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Пароль" name="pass">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Подтвердите пароль" name="repeatpass">
+            </div>
+            <button class="btn signin"><a href="vhod.html">Авторизация</a></button>
+            <button type="submit" class="btn signup">Зарегистрироваться</button>
+        </form>
+        </div>
+        </div>
+       
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
