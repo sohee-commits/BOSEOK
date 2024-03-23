@@ -103,11 +103,14 @@
               mysqli_stmt_bind_param($stmt, "sssss", $r_name, $r_surname, $r_parentName, $r_email, $r_passwordHash);
               if (mysqli_stmt_execute($stmt)) {
                 echo "<p>Вы зарегистрированы.</p>";
+                echo "<script>console.log('Вы зарегистрированы.');</script>";
               } else {
                 echo "Ошибка при регистрации.";
+                echo "<script>console.log('Ошибка при регистрации.');</script>";
               }
             } else {
               echo "Ошибка в запросе.";
+              echo "<script>console.log('Ошибка в запросе.');</script>";
             }
           }
         }
