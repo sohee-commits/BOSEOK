@@ -14,13 +14,13 @@ header.innerHTML += `
       </div>
     </section>
     <div class="logo">
-      <a href="./index.html" class="h1">boseok</a>
+      <a href="./index.php" class="h1">boseok</a>
     </div>
     <section class="right site-info">
-      <a href="./login.html">
+      <a href="./login.php">
         <img src="./assets/icons/user.png" alt="icon" />
       </a>
-      <a href="./cart.html"><img src="./assets/icons/cart.png" alt="icon" /></a>
+      <a href="./cart.php"><img src="./assets/icons/cart.png" alt="icon" /></a>
 
       <div class="currency inner">
         <img src="./assets/icons/rub.png" alt="icon" />
@@ -29,29 +29,29 @@ header.innerHTML += `
     </section>
   </section>
   <nav>
-    <a href="./earrings.html">серьги</a>
-    <a href="./rings.html">кольца</a>
-    <a href="./jewerly.html">ювелирные изделия</a>
-    <a href="./index.html#collections">коллекции</a>
+    <a href="./earrings.php">серьги</a>
+    <a href="./rings.php">кольца</a>
+    <a href="./jewerly.php">ювелирные изделия</a>
+    <a href="./index.php#collections">коллекции</a>
   </nav>
 `;
 
 let footer = document.createElement(`footer`);
 footer.innerHTML += `
   <div class="logo">
-    <a href="./index.html" class="h1">boseok</a>
+    <a href="./index.php" class="h1">boseok</a>
   </div>
   <section>
     <p class="bold">Категории</p>
-    <a href="./earrings.html" class="small">Серьги</a>
-    <a href="./rings.html" class="small">Кольца</a>
-    <a href="./jewerly.html" class="small">Ювелирные изделия</a>
+    <a href="./earrings.php" class="small">Серьги</a>
+    <a href="./rings.php" class="small">Кольца</a>
+    <a href="./jewerly.php" class="small">Ювелирные изделия</a>
     <a href="./index.hmtl#collections" class="small">Коллекции</a>
   </section>
   <section>
     <p class="bold">Коллекции</p>
-    <a href="./hwayang.html" class="small">HwaYang</a>
-    <a href="./yeonhwa.html" class="small">YeonHwa</a>
+    <a href="./hwayang.php" class="small">HwaYang</a>
+    <a href="./yeonhwa.php" class="small">YeonHwa</a>
   </section>
   <section>
     <p class="bold">Подписаться на рассылку</p>

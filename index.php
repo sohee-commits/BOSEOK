@@ -28,8 +28,8 @@
 					изделий.
 				</p>
 				<div class="btns">
-					<a href="./hwayang.html" class="btn-primary">Коллекция HwaYang</a>
-					<a href="./yeonhwa.html" class="btn-secondary">Коллекция YeonHwa</a>
+					<a href="./hwayang.php" class="btn-primary">Коллекция HwaYang</a>
+					<a href="./yeonhwa.php" class="btn-secondary">Коллекция YeonHwa</a>
 				</div>
 			</section>
 
@@ -63,7 +63,7 @@
 						Пришло время обновить свою шкатулку с украшениями, добавив в нее
 						самые актуальные вещи.
 					</p>
-					<a href="./yeonhwa.html" class="btn-secondary">Смотреть</a>
+					<a href="./yeonhwa.php" class="btn-secondary">Смотреть</a>
 				</section>
 				<!-- collection -->
 				<section class="coll">
@@ -75,7 +75,7 @@
 						Откройте для себя изысканные ювелирные украшения, созданные для
 						того, чтобы передать особый стиль и историю.
 					</p>
-					<a href="./hwayang.html" class="btn-secondary">Смотреть</a>
+					<a href="./hwayang.php" class="btn-secondary">Смотреть</a>
 				</section>
 			</section>
 
@@ -87,7 +87,7 @@
 						Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 						подарок себе или близкому человеку.
 					</p>
-					<a href="./jewerly.html" class="btn bold">Открыть</a>
+					<a href="./jewerly.php" class="btn bold">Открыть</a>
 				</div>
 				<div class="image">
 					<img src="./assets/index/gift/1.png" alt="image" />

@@ -52,7 +52,7 @@
         <label for="email"></label>
         <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" />
         <input type="password" id="password" name="password" placeholder="Пароль" autocomplete="current-password" />
-        <a href="./forgot-password.html" class="small link">Забыли пароль?</a>
+        <a href="./forgot-password.php" class="small link">Забыли пароль?</a>
         <button type="submit" id="login" class="btn-primary">Войти</button>
       </form>
     </section>

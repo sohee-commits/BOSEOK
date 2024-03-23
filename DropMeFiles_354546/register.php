@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "INSERT INTO `database` (login, pass, name, age, date,class) VALUES ('$login', '$pass', '$name','$age', '$date','$class')";
         $conn->query($sql);
 
-        // Перенаправление на страницу vhod.html
-        header("Location: vhod.html");
+        // Перенаправление на страницу vhod.php
+        header("Location: vhod.php");
         exit; // Убедитесь, что скрипт останавливается после перенаправления
     }
 }

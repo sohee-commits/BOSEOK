@@ -2,10 +2,10 @@ renderCards = () => {
 	let cards = document.querySelector(`.cards`);
 
 	let items = [
-		{ title: `Кольца`, href: `./rings.html` },
-		{ title: `Серьги`, href: `./earrings.html` },
-		{ title: `Ювелирные изделия`, href: `./jewerly.html` },
-		{ title: `Коллекции`, href: `./index.html#collections` },
+		{ title: `Кольца`, href: `./rings.php` },
+		{ title: `Серьги`, href: `./earrings.php` },
+		{ title: `Ювелирные изделия`, href: `./jewerly.php` },
+		{ title: `Коллекции`, href: `./index.php#collections` },
 	];
 
 	for (let i = 0; i < items.length; i++) {

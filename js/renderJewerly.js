@@ -131,7 +131,7 @@ let renderJewerly = () => {
 	for (let i = 0; i <= jewerly.length - 1; i++) {
 		cards.innerHTML += `
     <!-- card -->
-    <a href="./item-${jewerly[i].name.toLowerCase()}.html" class="card">
+    <a href="./item-${jewerly[i].name.toLowerCase()}.php" class="card">
       <div class="image">
         <img src="./assets/jewerly/${jewerly[i].name}.jpg" alt="preview" />
       </div>
@@ -149,7 +149,7 @@ let renderEarrings = () => {
 	for (let i = 0; i <= earrings.length - 1; i++) {
 		cards.innerHTML += `
     <!-- card -->
-    <a href="./item-${earrings[i].name.toLowerCase()}.html" class="card">
+    <a href="./item-${earrings[i].name.toLowerCase()}.php" class="card">
       <div class="image">
         <img src="./assets/jewerly/${earrings[i].name}.jpg" alt="preview" />
       </div>
@@ -167,7 +167,7 @@ let renderRings = () => {
 	for (let i = 0; i <= rings.length - 1; i++) {
 		cards.innerHTML += `
     <!-- card -->
-    <a href="./item-${rings[i].name.toLowerCase()}.html" class="card">
+    <a href="./item-${rings[i].name.toLowerCase()}.php" class="card">
       <div class="image">
         <img src="./assets/jewerly/${rings[i].name}.jpg" alt="preview" />
       </div>
@@ -185,7 +185,7 @@ let renderHwayang = () => {
 	for (let i = 0; i <= hwayang.length - 1; i++) {
 		cards.innerHTML += `
     <!-- card -->
-    <a href="./item-${hwayang[i].name.toLowerCase()}.html" class="card">
+    <a href="./item-${hwayang[i].name.toLowerCase()}.php" class="card">
       <div class="image">
         <img src="./assets/jewerly/${hwayang[i].name}.jpg" alt="preview" />
       </div>
@@ -203,7 +203,7 @@ let renderYeonhwa = () => {
 	for (let i = 0; i <= yeonhwa.length - 1; i++) {
 		cards.innerHTML += `
     <!-- card -->
-    <a href="./item-${yeonhwa[i].name.toLowerCase()}.html" class="card">
+    <a href="./item-${yeonhwa[i].name.toLowerCase()}.php" class="card">
       <div class="image">
         <img src="./assets/jewerly/${yeonhwa[i].name}.jpg" alt="preview" />
       </div>
