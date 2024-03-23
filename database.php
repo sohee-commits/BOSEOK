@@ -4,8 +4,8 @@ $dbUser = "1is-a12_1is-a12";
 $dbPassword = "DN1J1JSHLe";
 $dbName = "1is-a12_1is-a12"; // НАЗВАТЬ SQL ФАЙЛ ТАК ЖЕ
 
-$mysqli = mysqli_connect($hostName, $dbUser, $dbPassword, $dbName);
+$conn = mysqli_connect($hostName, $dbUser, $dbPassword, $dbName);
 
-if (!$mysqli) {
+if (!$conn) {
   die ("Something went wrong;");
 }
