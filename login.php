@@ -112,7 +112,7 @@ if (isset ($_SESSION["user"])) {
             } else {
               // Prepare the SQL statement
               $r_passwordHash = password_hash($r_password, PASSWORD_DEFAULT);
-              $stmt = $conn->prepare("INSERT INTO users (name, surname, parentName, email, password) VALUES (?, ?, ?, ?, ?)");
+              $stmt = $conn->prepare("INSERT INTO users (name, surname, parent_name, email, password) VALUES (?, ?, ?, ?, ?)");
               $stmt->bind_param("sssss", $r_name, $r_surname, $r_parentName, $r_email, $r_passwordHash);
 
               // Execute the statement
