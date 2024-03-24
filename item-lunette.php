@@ -6,6 +6,7 @@ if (isset ($_SESSION["user"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,6 +18,7 @@ if (isset ($_SESSION["user"])) {
 		<!-- js -->
 		<script src="./js/main.js" defer></script>
 	</head>
+
 	<body>
 		<section class="ad">
 			<p class="small bold">
@@ -56,12 +58,7 @@ if (isset ($_SESSION["user"])) {
 						<button class="btn-primary">Добавить в корзину</button>
 						<hr />
 						<div class="delivery">
-							<img
-								src="./assets/icons/delivery.png"
-								width="16"
-								height="16"
-								alt="delivery > "
-							/>
+							<img src="./assets/icons/delivery.png" width="16" height="16" alt="delivery > " />
 							<p>Бесплатная доставка, бесплатный 30-дневный возврат</p>
 						</div>
 					</section>
@@ -92,12 +89,7 @@ if (isset ($_SESSION["user"])) {
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
 				</p>
-				<a
-					href="https://yandex.ru/maps/-/CDFvFIkT"
-					target="_blank"
-					class="btn-secondary"
-					>Посмотреть на карте</a
-				>
+				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
 		</main>
 
@@ -109,4 +101,5 @@ if (isset ($_SESSION["user"])) {
 			</a>
 		</section>
 	</body>
+
 </html>

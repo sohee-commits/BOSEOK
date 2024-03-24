@@ -1,3 +1,9 @@
+<?php
+require_once "session.php";
+if (!isset ($_SESSION["user"])) {
+	header("Location: not-authorized.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
