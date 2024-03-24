@@ -6,6 +6,7 @@ if (isset ($_SESSION["user"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,6 +19,7 @@ if (isset ($_SESSION["user"])) {
 		<script src="./js/main.js" defer></script>
 		<script src="./js/index.js" defer></script>
 	</head>
+
 	<body>
 		<section class="ad">
 			<p class="small bold">
@@ -109,12 +111,7 @@ if (isset ($_SESSION["user"])) {
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
 				</p>
-				<a
-					href="https://yandex.ru/maps/-/CDFvFIkT"
-					target="_blank"
-					class="btn-secondary"
-					>Посмотреть на карте</a
-				>
+				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
 
 			<section class="inspo">
@@ -131,4 +128,5 @@ if (isset ($_SESSION["user"])) {
 			</a>
 		</section>
 	</body>
+
 </html>
