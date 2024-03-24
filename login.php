@@ -123,7 +123,7 @@ require_once "database.php";
               if ($stmt->execute()) {
                 // register success
                 session_start();
-                $_SESSION["user"] = $user["id"];
+                $_SESSION["user"] = $conn->insert_id;
                 header("Location: user.php");
                 die();
               } else {
