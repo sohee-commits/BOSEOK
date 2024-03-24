@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +12,7 @@
 		<!-- js -->
 		<script src="./js/main.js" defer></script>
 	</head>
+
 	<body>
 		<section class="ad">
 			<p class="small bold">Бесплатная доставка и 30-дневный возврат</p>
@@ -32,6 +34,9 @@
 					<button type="submit" id="changeProfile" class="btn-primary">
 						Сохранить
 					</button>
+					<a href="./logout.php" class="btn-primary">
+						Выйти
+					</a>
 				</section>
 			</section>
 
@@ -44,12 +49,7 @@
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
 				</p>
-				<a
-					href="https://yandex.ru/maps/-/CDFvFIkT"
-					target="_blank"
-					class="btn-secondary"
-					>Посмотреть на карте</a
-				>
+				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
 		</main>
 
@@ -61,4 +61,5 @@
 			</a>
 		</section>
 	</body>
+
 </html>
