@@ -70,7 +70,7 @@ require_once "database.php";
           <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" />
           <input type="password" id="password" name="password" placeholder="Пароль" autocomplete="current-password" />
           <a href="./forgot-password.php" class="small link">Забыли пароль?</a>
-          <button type="submit" id="login" class="btn-primary">Войти</button>
+          <button type="submit" id="login" name="login" class="btn-primary">Войти</button>
         </form>
       </section>
 
