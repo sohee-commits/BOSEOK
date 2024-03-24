@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset ($_SESSION["user"])) {
+  header("Location: user.php");
+  echo "<script>console.log('user true')</script>";
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
