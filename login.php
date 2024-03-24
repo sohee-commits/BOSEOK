@@ -2,7 +2,6 @@
 session_start();
 if (isset ($_SESSION["user"])) {
   header("Location: user.php");
-  echo "<script>console.log('user true')</script>";
 }
 
 ini_set('display_errors', 1);
@@ -56,7 +55,7 @@ require_once "database.php";
               if (password_verify($password, $user["password"])) {
                 session_start();
                 $_SESSION["user"] = "yes";
-                header("Location: index.php");
+                header("Location: user.php");
                 die();
               } else {
                 echo "<p class='error'>Пароли должны совпадать.</p>";
@@ -122,7 +121,11 @@ require_once "database.php";
 
               // Execute the statement
               if ($stmt->execute()) {
-                echo "<p>Вы вошли в аккаунт.</p>";
+                // register success
+                session_start();
+                $_SESSION["user"] = "yes";
+                header("Location: user.php");
+                die();
               } else {
                 echo "Ошибка при входе: " . mysqli_error($conn);
               }
