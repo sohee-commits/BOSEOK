@@ -4,6 +4,11 @@ if (isset ($_SESSION["user"])) {
   header("Location: user.php");
   echo "<script>console.log('user true')</script>";
 }
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
