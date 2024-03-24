@@ -54,7 +54,7 @@ require_once "database.php";
             if ($user) {
               if (password_verify($password, $user["password"])) {
                 session_start();
-                $_SESSION["user"] = "yes";
+                $_SESSION["user"] = $user["id"];
                 header("Location: user.php");
                 die();
               } else {

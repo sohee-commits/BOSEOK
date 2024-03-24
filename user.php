@@ -1,3 +1,20 @@
+<?php
+session_start();
+if (!isset ($_SESSION["user"])) {
+	header("Location: login.php");
+	exit();
+}
+require_once "database.php";
+
+$stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->bind_param("s", $_SESSION["user"]);
+
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +39,9 @@
 			<section class="user" id="user">
 				<p class="h2 bold">Профиль</p>
 				<section class="user-info" id="user-info">
-					<p class="input" id="name">Здесь будет Имя</p>
+					<p class="input" id="name">
+						<?php echo $user["name"]; ?>
+					</p>
 					<p class="input" id="surname">Здесь будет Фамилия</p>
 					<p class="input" id="parent">Здесь будет Отчество</p>
 					<p class="input" id="email">Здесь будет почта</p>
