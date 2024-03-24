@@ -50,9 +50,6 @@ $user = $result->fetch_assoc();
 						<input type="checkbox" name="send-ads" id="send-ads" checked />
 						Присылайте мне на электронную почту новости и предложения BOSEOK.
 					</label>
-					<button type="submit" id="changeProfile" class="btn-primary">
-						Сохранить
-					</button>
 					<a href="./logout.php" class="btn-primary">
 						Выйти
 					</a>
