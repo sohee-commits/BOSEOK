@@ -16,7 +16,7 @@ require_once "session.php";
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/item.css" />
 		<!-- js -->
-		<script src="./js/main.js" defer></script>
+
 		<script src="./js/cart.js" defer></script>
 	</head>
 

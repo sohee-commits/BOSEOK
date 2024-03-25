@@ -32,10 +32,3 @@
     <a href="./index.php#collections">коллекции</a>
   </nav>
 </header>
-
-<style>
-  header img {
-    width: 1rem;
-    height: 1rem;
-  }
-</style>

@@ -13,6 +13,8 @@
 	justify-content: flex-start;
 	gap: 2rem;
 
+	text-align: right;
+
 	.intr-h {
 		font-weight: bold;
 		font-size: 1.75rem;
@@ -20,6 +22,8 @@
 
 	.btns {
 		display: flex;
+		align-items: flex-end;
+		justify-content: flex-end;
 		gap: 1rem;
 	}
 

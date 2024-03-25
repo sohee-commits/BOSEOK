@@ -13,7 +13,7 @@ require_once "session.php";
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/item.css" />
 		<!-- js -->
-		<script src="./js/main.js" defer></script>
+
 		<script src="./js/cart.js" defer></script>
 	</head>
 
@@ -91,7 +91,8 @@ require_once "session.php";
 				</p>
 				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
-		</main> <?php require_once ('./footer.php'); ?>
+		</main>
+		<?php require_once ('./footer.php'); ?>
 
 		<section class="cr">
 			<p class="small">&copy; BOSEOK, 2024</p>

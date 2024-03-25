@@ -26,7 +26,7 @@ require_once "database.php";
     <link rel="stylesheet" href="./css/login.css" />
     <!-- js -->
     <script src="./js/login.js" defer></script>
-    <script src="./js/main.js" defer></script>
+
   </head>
 
   <body>

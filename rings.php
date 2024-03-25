@@ -13,7 +13,7 @@ require_once "session.php";
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/catalog.css" />
 		<!-- js -->
-		<script src="./js/main.js" defer></script>
+
 		<script src="./js/renderJewerly.js" defer></script>
 		<script src="./js/rings.js" defer></script>
 	</head>

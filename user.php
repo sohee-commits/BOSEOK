@@ -27,7 +27,7 @@ $user = $result->fetch_assoc();
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/user.css" />
 		<!-- js -->
-		<script src="./js/main.js" defer></script>
+
 	</head>
 
 	<body>
