@@ -42,10 +42,15 @@ $user = $result->fetch_assoc();
 					<p class="input" id="name">
 						<?php echo $user["name"]; ?>
 					</p>
-					<p class="input" id="surname">Здесь будет Фамилия</p>
-					<p class="input" id="parent">Здесь будет Отчество</p>
-					<p class="input" id="email">Здесь будет почта</p>
-					<p class="input" id="parent">Здесь будет адрес</p>
+					<p class="input" id="surname">
+						<?php echo $user["surname"]; ?>
+					</p>
+					<p class="input" id="parent">
+						<?php echo $user["parent_name"]; ?>
+					</p>
+					<p class="input" id="email">
+						<?php echo $user["email"]; ?>
+					</p>
 					<label for="send-ads">
 						<input type="checkbox" name="send-ads" id="send-ads" checked />
 						Присылайте мне на электронную почту новости и предложения BOSEOK.
