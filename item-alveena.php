@@ -26,6 +26,8 @@ require_once "session.php";
 			</p>
 		</section>
 
+		<?php require_once ('./header.php'); ?>
+
 		<main>
 			<section class="item-container">
 				<p class="small">HwaYang > Alveena</p>
@@ -43,7 +45,7 @@ require_once "session.php";
 							тонкой цепочкой, которая переливается блеском. Его дизайн не
 							только приятен на ощупь, но и притягивает взгляд.
 						</p>
-						<p class="h2" id="item-price">₽ 1, 050</p>
+						<p class="h2" id="item-price">₽ 10 500</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

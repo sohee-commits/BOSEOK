@@ -47,7 +47,7 @@ require_once "session.php";
 							элегантен и божественен, что делает его идеальным выбором для тех,
 							кто ценит самые лучшие материалы и мастерство.
 						</p>
-						<p class="h2" id="item-price">₽ 1, 790</p>
+						<p class="h2" id="item-price">₽ 17 900</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

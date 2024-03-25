@@ -45,7 +45,7 @@ require_once "session.php";
 							Кольцо, служащее постоянным напоминанием о доверии и вере друг в
 							друга, свидетельство непоколебимой связи.
 						</p>
-						<p class="h2" id="item-price">₽ 1, 790</p>
+						<p class="h2" id="item-price">₽ 17 900</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

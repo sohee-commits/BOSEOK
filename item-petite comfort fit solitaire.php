@@ -46,7 +46,7 @@ require_once "session.php";
 							Кольцо, означающее обещание, которому нет конца, обязательство,
 							которое навсегда останется нерушимым.
 						</p>
-						<p class="h2" id="item-price">₽ 750</p>
+						<p class="h2" id="item-price">₽ 7 500</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

@@ -44,7 +44,7 @@ require_once "session.php";
 							эффект, который непременно привлечет внимание.
 						</p>
 
-						<p class="h2" id="item-price">₽ 1, 750</p>
+						<p class="h2" id="item-price">₽ 17 500</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

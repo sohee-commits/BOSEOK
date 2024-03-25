@@ -44,7 +44,7 @@ require_once "session.php";
 							Кольцо, символизирующее круг счастья, удивления и восторга,
 							обещание жизни, наполненной радостью и удовлетворением.
 						</p>
-						<p class="h2" id="item-price">₽ 1, 290</p>
+						<p class="h2" id="item-price">₽ 12 900</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />
