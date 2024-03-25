@@ -25,6 +25,8 @@ require_once "session.php";
 			</p>
 		</section>
 
+		<?php require_once ('./header.php'); ?>
+
 		<main>
 			<section class="catalog">
 				<p class="h2 bold">Серьги</p>

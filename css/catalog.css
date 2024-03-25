@@ -3,19 +3,6 @@
 	gap: 2rem;
 }
 
-.metal-container {
-	width: min-content;
-	position: relative;
-}
-
-.metal-container::after {
-	position: absolute;
-	top: 0;
-	left: 100%;
-	content: '▼';
-	font-size: 0.7rem;
-}
-
 .cards {
 	display: grid;
 	gap: 2rem;

@@ -143,7 +143,7 @@ require_once "session.php";
 				<p class="h2 bold">Вдохновение</p>
 				<div class="images"></div>
 			</section>
-		</main> 
+		</main>
 
 		<?php require_once ('./footer.php'); ?>
 
