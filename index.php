@@ -91,7 +91,7 @@ require_once "session.php";
 					<div class="image">
 						<img src="./assets/index/collections/1.png" alt="preview" />
 					</div>
-					<p class="h2">Украшения YeonHwa</p>
+					<p class="h2 bold">Коллекция YeonHwa</p>
 					<p>
 						Пришло время обновить свою шкатулку с украшениями, добавив в нее
 						самые актуальные вещи.
@@ -103,7 +103,7 @@ require_once "session.php";
 					<div class="image">
 						<img src="./assets/index/collections/2.png" alt="preview" />
 					</div>
-					<p class="h2">Коллекция HwaYang</p>
+					<p class="h2 bold">Коллекция HwaYang</p>
 					<p>
 						Откройте для себя изысканные ювелирные украшения, созданные для
 						того, чтобы передать особый стиль и историю.

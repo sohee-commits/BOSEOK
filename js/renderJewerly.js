@@ -136,7 +136,7 @@ let renderJewerly = () => {
         <img src="./assets/jewerly/${jewerly[i].name}.jpg" alt="preview" />
       </div>
       <p class="bold">${jewerly[i].name}</p>
-      <p>$ ${jewerly[i].price}</p>
+      <p>₽ ${jewerly[i].price}</p>
     </a>
     `;
 	}
@@ -154,7 +154,7 @@ let renderEarrings = () => {
         <img src="./assets/jewerly/${earrings[i].name}.jpg" alt="preview" />
       </div>
       <p class="bold">${earrings[i].name}</p>
-      <p>$ ${earrings[i].price}</p>
+      <p>₽ ${earrings[i].price}</p>
     </a>
     `;
 	}
@@ -172,7 +172,7 @@ let renderRings = () => {
         <img src="./assets/jewerly/${rings[i].name}.jpg" alt="preview" />
       </div>
       <p class="bold">${rings[i].name}</p>
-      <p>$ ${rings[i].price}</p>
+      <p>₽ ${rings[i].price}</p>
     </a>
     `;
 	}
@@ -190,7 +190,7 @@ let renderHwayang = () => {
         <img src="./assets/jewerly/${hwayang[i].name}.jpg" alt="preview" />
       </div>
       <p class="bold">${hwayang[i].name}</p>
-      <p>$ ${hwayang[i].price}</p>
+      <p>₽ ${hwayang[i].price}</p>
     </a>
     `;
 	}
@@ -208,7 +208,7 @@ let renderYeonhwa = () => {
         <img src="./assets/jewerly/${yeonhwa[i].name}.jpg" alt="preview" />
       </div>
       <p class="bold">${yeonhwa[i].name}</p>
-      <p>$ ${yeonhwa[i].price}</p>
+      <p>₽ ${yeonhwa[i].price}</p>
     </a>
     `;
 	}
