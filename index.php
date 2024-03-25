@@ -41,7 +41,34 @@ require_once "session.php";
 			<section class="categories">
 				<p class="h2 bold">Категории</p>
 				<section class="cards">
-					<!-- reactive -->
+					<!-- card -->
+					<a href="./rings.php" class="card">
+						<div class="image">
+							<img src="./assets/index/categories/1.png" alt="rings" />
+						</div>
+						<p class="bold">Кольца</p>
+					</a>
+					<!-- card -->
+					<a href="./earrings.php" class="card">
+						<div class="image">
+							<img src="./assets/index/categories/2.png" alt="earrings" />
+						</div>
+						<p class="bold">Серьги</p>
+					</a>
+					<!-- card -->
+					<a href="./jewerly.php" class="card">
+						<div class="image">
+							<img src="./assets/index/categories/3.png" alt="jewerly" />
+						</div>
+						<p class="bold">Ювелирные изделия</p>
+					</a>
+					<!-- card -->
+					<a href="#collections" class="card">
+						<div class="image">
+							<img src="./assets/index/categories/4.png" alt="rings" />
+						</div>
+						<p class="bold">Коллекции</p>
+					</a>
 				</section>
 			</section>
 
