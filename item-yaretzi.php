@@ -47,7 +47,7 @@ require_once "session.php";
 							реликвийного качества. Идеально подходит для тех, кто ценит
 							очарование традиционных украшений.
 						</p>
-						<p class="h2" id="item-price">$ 1, 350</p>
+						<p class="h2" id="item-price">₽ 1, 350</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

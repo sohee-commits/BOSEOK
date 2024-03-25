@@ -42,7 +42,7 @@ require_once "session.php";
 							Идеально подходящие для прогулки или вечера в городе, эти серьги
 							добавят изысканности и элегантности любому ансамблю.
 						</p>
-						<p class="h2" id="item-price">$ 990</p>
+						<p class="h2" id="item-price">₽ 990</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

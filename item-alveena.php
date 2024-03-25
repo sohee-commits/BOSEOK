@@ -43,7 +43,7 @@ require_once "session.php";
 							тонкой цепочкой, которая переливается блеском. Его дизайн не
 							только приятен на ощупь, но и притягивает взгляд.
 						</p>
-						<p class="h2" id="item-price">$ 1, 050</p>
+						<p class="h2" id="item-price">₽ 1, 050</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />
@@ -90,7 +90,7 @@ require_once "session.php";
 				</p>
 				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
-		</main> 
+		</main>
 
 		<?php require_once ('./footer.php'); ?>
 

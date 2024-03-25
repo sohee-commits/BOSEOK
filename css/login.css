@@ -9,8 +9,12 @@ main {
 	}
 
 	@media (max-width: 750px) {
-    grid-template-columns: 1fr;
-  }
+		grid-template-columns: 1fr;
+	}
+}
+
+[class^='btn'] {
+	width: 100%;
 }
 
 form {

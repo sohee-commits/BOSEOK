@@ -334,7 +334,7 @@ footer {
 	form {
 		width: 100%;
 		display: flex;
-		gap: 0px !important;
+		gap: 0px;
 
 		label {
 			display: none;
@@ -401,10 +401,6 @@ footer {
 
 	.small {
 		font-size: 0.75rem;
-	}
-
-	.bold {
-		font-weight: bold;
 	}
 
 	h1,

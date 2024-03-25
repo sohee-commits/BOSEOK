@@ -44,7 +44,7 @@ require_once "session.php";
 							Кольцо, символизирующее бесконечный круг любви, обещание вечной
 							верности и преданности.
 						</p>
-						<p class="h2" id="item-price">$ 1, 790</p>
+						<p class="h2" id="item-price">₽ 1, 790</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

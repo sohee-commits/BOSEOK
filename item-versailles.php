@@ -43,7 +43,7 @@ require_once "session.php";
 							Эти изысканные бриллиантовые серьги созданы, чтобы ловить свет и
 							ослеплять, делая вас центром внимания.
 						</p>
-						<p class="h2" id="item-price">$ 2, 690</p>
+						<p class="h2" id="item-price">₽ 2, 690</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

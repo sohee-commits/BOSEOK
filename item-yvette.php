@@ -44,7 +44,7 @@ require_once "session.php";
 							идеально подходящим для придания любому наряду нотки мистики и
 							романтики.
 						</p>
-						<p class="h2" id="item-price">$ 1, 690</p>
+						<p class="h2" id="item-price">₽ 1, 690</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

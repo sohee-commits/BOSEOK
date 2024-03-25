@@ -37,7 +37,7 @@ require_once "database.php";
     <?php require_once ('./header.php'); ?>
 
     <main>
-      <section class="login">
+      <section class="login" id="login">
         <p class="h2 bold">Вход</p>
         <p>Если у вас есть учетная запись, войдите в нее.</p>
         <form action="login.php" method="post">
@@ -71,7 +71,6 @@ require_once "database.php";
           <label for="email"></label>
           <input type="email" id="email" name="email" placeholder="Email" autocomplete="email" />
           <input type="password" id="password" name="password" placeholder="Пароль" autocomplete="current-password" />
-          <a href="./forgot-password.php" class="small link">Забыли пароль?</a>
           <button type="submit" id="login" name="login" class="btn-primary">Войти</button>
         </form>
       </section>

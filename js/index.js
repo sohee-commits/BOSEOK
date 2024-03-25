@@ -9,3 +9,4 @@ renderPhotos = () => {
 };
 
 renderPhotos();
+renderPhotos();

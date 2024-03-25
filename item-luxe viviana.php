@@ -44,7 +44,7 @@ require_once "session.php";
 							Кольцо в знак преданности, символ глубокой и неизменной любви,
 							связывающей два сердца.
 						</p>
-						<p class="h2" id="item-price">$ 2, 050</p>
+						<p class="h2" id="item-price">₽ 2, 050</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

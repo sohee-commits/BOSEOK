@@ -14,7 +14,7 @@
       <a href="./index.php" class="h1">boseok</a>
     </div>
     <section class="right site-info">
-      <a href="./login.php">
+      <a href="./login.php#login">
         <img src="./assets/icons/user.png" alt="icon" />
       </a>
       <a href="./cart.php"><img src="./assets/icons/cart.png" alt="icon" /></a>

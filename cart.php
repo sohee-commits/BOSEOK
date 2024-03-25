@@ -45,7 +45,7 @@ if (!isset ($_SESSION["user"])) {
 							<div class="text">
 								<p id="item-name" class="bold h2">Alveena</p>
 								<p>
-									<span class="h2">$ <span id="item-price">1,050</span></span>
+									<span class="h2">₽ <span id="item-price">1,050</span></span>
 									<br />
 									₽ <span id="item-price-rub">105,000</span>
 								</p>
