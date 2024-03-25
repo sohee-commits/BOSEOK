@@ -1,0 +1,43 @@
+// Предположим, что у вас есть массив данных
+const data = [
+ { name: "Item 1", cost: 100 },
+ { name: "Item 2", cost: 200 },
+];
+
+// Преобразование массива в строку JSON
+const jsonData = JSON.stringify(data);
+
+// Отправка данных на сервер
+fetch('cart.php', {
+ method: 'POST',
+ headers: {
+    'Content-Type': 'application/json',
+ },
+ body: jsonData,
+})
+.then(response => response.text())
+.then(data => console.log(data))
+.catch((error) => console.error('Error:', error));
+
+На стороне PHP вы можете получить данные из запроса и декодировать их из JSON:
+// cart.php
+$data = file_get_contents('php://input');
+print_r($data);
+
+Создайте PHP скрипт, который возвращает массив данных в формате JSON.
+$data = array("item1", "item2", "item3");
+echo json_encode($data);
+
+Используйте Fetch API в JavaScript для получения данных от PHP скрипта.
+fetch('data.php')
+ .then(response => response.json())
+ .then(data => {
+    console.log(data); // Выведет полученный массив данных
+    // Здесь вы можете работать с полученными данными
+ })
+ .catch(error => console.error('Ошибка:', error));
+
+
+
+
+UPDATE users SET cart = somethingHere WHERE users id = ?;
