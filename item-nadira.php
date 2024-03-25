@@ -53,7 +53,7 @@ require_once "session.php";
 								покупке на сумму более 1000 долларов США.
 							</p>
 						</section>
-						<button class="btn-primary">Добавить в корзину</button>
+						<button class="btn-primary" id="buy-jewerly">Добавить в корзину</button>
 						<hr />
 						<div class="delivery">
 							<img
