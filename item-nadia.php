@@ -40,7 +40,7 @@ require_once "session.php";
 							зубцами, в которых заключен центральный драгоценный камень.
 							Классический вид.
 						</p>
-						<p class="h2">$ 1, 590</p>
+						<p class="h2" id="item-price">$ 1, 590</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

@@ -41,7 +41,7 @@ require_once "session.php";
 							станут ярким украшением, придающим элегантность и изысканность
 							любому наряду.
 						</p>
-						<p class="h2">$ 1, 190</p>
+						<p class="h2" id="item-price">$ 1, 190</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

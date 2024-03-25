@@ -39,7 +39,7 @@ require_once "session.php";
 							мероприятия, эти серьги являются свидетельством элегантности вне
 							времени.
 						</p>
-						<p class="h2">$ 1, 390</p>
+						<p class="h2" id="item-price">$ 1, 390</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

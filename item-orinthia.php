@@ -43,7 +43,7 @@ require_once "session.php";
 							делая его обязательным атрибутом для тех, кто любит мистическое
 							очарование стимпанка.
 						</p>
-						<p class="h2">$ 750</p>
+						<p class="h2" id="item-price">$ 750</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />

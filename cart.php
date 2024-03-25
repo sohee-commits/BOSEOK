@@ -16,6 +16,7 @@ if (!isset ($_SESSION["user"])) {
 		<link rel="stylesheet" href="./css/cart.css" />
 		<!-- js -->
 		<script src="./js/main.js" defer></script>
+		<script src="./js/cart.js" defer></script>
 	</head>
 	<body>
 		<section class="ad">

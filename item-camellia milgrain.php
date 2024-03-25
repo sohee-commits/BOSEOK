@@ -3,6 +3,7 @@ require_once "session.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,6 +18,7 @@ require_once "session.php";
 		<!-- js -->
 		<script src="./js/main.js" defer></script>
 	</head>
+
 	<body>
 		<section class="ad">
 			<p class="small bold">
@@ -41,7 +43,7 @@ require_once "session.php";
 							Кольцо, служащее постоянным напоминанием о доверии и вере друг в
 							друга, свидетельство непоколебимой связи.
 						</p>
-						<p class="h2">$ 1, 790</p>
+						<p class="h2" id="item-price">$ 1, 790</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />
@@ -55,12 +57,7 @@ require_once "session.php";
 						<button class="btn-primary">Добавить в корзину</button>
 						<hr />
 						<div class="delivery">
-							<img
-								src="./assets/icons/delivery.png"
-								width="16"
-								height="16"
-								alt="delivery > "
-							/>
+							<img src="./assets/icons/delivery.png" width="16" height="16" alt="delivery > " />
 							<p>Бесплатная доставка, бесплатный 30-дневный возврат</p>
 						</div>
 					</section>
@@ -91,12 +88,7 @@ require_once "session.php";
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
 				</p>
-				<a
-					href="https://yandex.ru/maps/-/CDFvFIkT"
-					target="_blank"
-					class="btn-secondary"
-					>Посмотреть на карте</a
-				>
+				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
 		</main>
 
@@ -108,4 +100,5 @@ require_once "session.php";
 			</a>
 		</section>
 	</body>
+
 </html>

@@ -3,6 +3,7 @@ require_once "session.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,7 +16,9 @@ require_once "session.php";
 		<link rel="stylesheet" href="./css/item.css" />
 		<!-- js -->
 		<script src="./js/main.js" defer></script>
+		<script src="./js/cart.js" defer></script>
 	</head>
+
 	<body>
 		<section class="ad">
 			<p class="small bold">
@@ -41,7 +44,7 @@ require_once "session.php";
 							тонкой цепочкой, которая переливается блеском. Его дизайн не
 							только приятен на ощупь, но и притягивает взгляд.
 						</p>
-						<p class="h2">$ 1, 050</p>
+						<p class="h2" id="item-price">$ 1, 050</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />
@@ -52,15 +55,10 @@ require_once "session.php";
 								покупке на сумму более 1000 долларов США.
 							</p>
 						</section>
-						<button class="btn-primary">Добавить в корзину</button>
+						<button class="btn-primary" id="buy-jewerly">Добавить в корзину</button>
 						<hr />
 						<div class="delivery">
-							<img
-								src="./assets/icons/delivery.png"
-								width="16"
-								height="16"
-								alt="delivery > "
-							/>
+							<img src="./assets/icons/delivery.png" width="16" height="16" alt="delivery > " />
 							<p>Бесплатная доставка, бесплатный 30-дневный возврат</p>
 						</div>
 					</section>
@@ -91,12 +89,7 @@ require_once "session.php";
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
 				</p>
-				<a
-					href="https://yandex.ru/maps/-/CDFvFIkT"
-					target="_blank"
-					class="btn-secondary"
-					>Посмотреть на карте</a
-				>
+				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
 		</main>
 
@@ -108,4 +101,5 @@ require_once "session.php";
 			</a>
 		</section>
 	</body>
+
 </html>

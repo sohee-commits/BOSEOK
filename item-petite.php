@@ -40,7 +40,7 @@ require_once "session.php";
 							Кольцо, символизирующее неразрывную связь между двумя душами,
 							символ любви, которая преодолевает время и пространство.
 						</p>
-						<p class="h2">$ 1, 350</p>
+						<p class="h2" id="item-price">$ 1, 350</p>
 						<section class="sale">
 							<div class="image">
 								<img src="./assets/index/sale/1.png" alt="preview" />
