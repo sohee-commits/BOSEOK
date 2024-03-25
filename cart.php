@@ -6,6 +6,7 @@ if (!isset ($_SESSION["user"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,9 +16,9 @@ if (!isset ($_SESSION["user"])) {
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/cart.css" />
 		<!-- js -->
-		<script src="./js/main.js" defer></script>
 		<script src="./js/cart.js" defer></script>
 	</head>
+
 	<body>
 		<section class="ad">
 			<p class="small bold">
@@ -25,6 +26,8 @@ if (!isset ($_SESSION["user"])) {
 				000 РУБ. >
 			</p>
 		</section>
+
+		<?php require_once ('./header.php'); ?>
 
 		<main>
 			<section class="cart" id="cart">
@@ -52,12 +55,7 @@ if (!isset ($_SESSION["user"])) {
 								<span id="item-type">Ожерелье</span>
 							</div>
 							<button>
-								<img
-									src="./assets/icons/delete.png"
-									alt="delete"
-									width="32"
-									height="32"
-								/>
+								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
 							</button>
 						</div>
 					</item>
@@ -72,14 +70,11 @@ if (!isset ($_SESSION["user"])) {
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
 				</p>
-				<a
-					href="https://yandex.ru/maps/-/CDFvFIkT"
-					target="_blank"
-					class="btn-secondary"
-					>Посмотреть на карте</a
-				>
+				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
 		</main>
+
+		<?php require_once ('./footer.php'); ?>
 
 		<section class="cr">
 			<p class="small">&copy; BOSEOK, 2024</p>
@@ -89,4 +84,5 @@ if (!isset ($_SESSION["user"])) {
 			</a>
 		</section>
 	</body>
+
 </html>

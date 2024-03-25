@@ -3,6 +3,7 @@ require_once "session.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,13 +14,14 @@ require_once "session.php";
 		<!-- css -->
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/forgot-password.css" />
-		<!-- js -->
-		<script src="./js/main.js" defer></script>
 	</head>
+
 	<body>
 		<section class="ad">
 			<p class="small bold">Бесплатная доставка и 30-дневный возврат</p>
 		</section>
+
+		<?php require_once ('./header.php'); ?>
 
 		<main>
 			<h1>
@@ -29,6 +31,8 @@ require_once "session.php";
 			<img src="./assets/dancing-cat.gif" alt="oopsie" />
 		</main>
 
+		<?php require_once ('./footer.php'); ?>
+
 		<section class="cr">
 			<p class="small">&copy; BOSEOK, 2024</p>
 			<a href="https://icons8.com" class="small">icons by icons8</a>
@@ -37,4 +41,5 @@ require_once "session.php";
 			</a>
 		</section>
 	</body>
+
 </html>

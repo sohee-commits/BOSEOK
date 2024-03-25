@@ -13,7 +13,6 @@ require_once "session.php";
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/index.css" />
 		<!-- js -->
-		<script src="./js/main.js" defer></script>
 		<script src="./js/index.js" defer></script>
 	</head>
 
@@ -24,6 +23,8 @@ require_once "session.php";
 				000 РУБ. >
 			</p>
 		</section>
+
+		<?php require_once ('./header.php'); ?>
 
 		<main>
 			<section class="intr">
@@ -142,7 +143,9 @@ require_once "session.php";
 				<p class="h2 bold">Вдохновение</p>
 				<div class="images"></div>
 			</section>
-		</main>
+		</main> 
+
+		<?php require_once ('./footer.php'); ?>
 
 		<section class="cr">
 			<p class="small">&copy; BOSEOK, 2024</p>

@@ -11,9 +11,7 @@ require_once "session.php";
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
     <!-- css -->
     <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/news.css" />
-    <!-- js -->
-    <script src="./js/main.js" defer></script>
+    <link rel="stylesheet" href="./css/about.css" />
   </head>
 
   <body>
@@ -23,6 +21,8 @@ require_once "session.php";
         000 РУБ. >
       </p>
     </section>
+
+    <?php require_once ('./header.php'); ?>
 
     <main>
       <section class="about">
@@ -70,6 +70,8 @@ require_once "session.php";
         <div class="images"></div>
       </section>
     </main>
+
+    <?php require_once ('./footer.php'); ?>
 
     <section class="cr">
       <p class="small">&copy; BOSEOK, 2024</p>

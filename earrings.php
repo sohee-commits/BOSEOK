@@ -3,6 +3,7 @@ require_once "session.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,10 +13,10 @@ require_once "session.php";
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/catalog.css" />
 		<!-- js -->
-		<script src="./js/main.js" defer></script>
 		<script src="./js/renderJewerly.js" defer></script>
 		<script src="./js/earrings.js" defer></script>
 	</head>
+
 	<body>
 		<section class="ad">
 			<p class="small bold">
@@ -35,21 +36,18 @@ require_once "session.php";
 
 			<section class="where">
 				<div class="image">
-					<img src="./assets/index/where/1.png" alt="preview" />
+					<img src="./assets/index/where/2.png" alt="preview" />
 				</div>
 				<p class="h2 bold">Мы здесь для вас.</p>
 				<p>
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
 				</p>
-				<a
-					href="https://yandex.ru/maps/-/CDFvFIkT"
-					target="_blank"
-					class="btn-secondary"
-					>Посмотреть на карте</a
-				>
+				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
 		</main>
+
+		<?php require_once ('./footer.php'); ?>
 
 		<section class="cr">
 			<p class="small">&copy; BOSEOK, 2024</p>
@@ -59,4 +57,5 @@ require_once "session.php";
 			</a>
 		</section>
 	</body>
+
 </html>

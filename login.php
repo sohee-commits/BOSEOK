@@ -34,6 +34,8 @@ require_once "database.php";
       <p class="small bold">Бесплатная доставка и 30-дневный возврат</p>
     </section>
 
+    <?php require_once ('./header.php'); ?>
+
     <main>
       <section class="login">
         <p class="h2 bold">Вход</p>
@@ -167,6 +169,7 @@ require_once "database.php";
         </form>
       </section>
     </main>
+    <?php require_once ('./footer.php'); ?>
 
     <section class="cr">
       <p class="small">&copy; BOSEOK, 2024</p>

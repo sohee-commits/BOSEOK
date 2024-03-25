@@ -3,6 +3,7 @@ require_once "session.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,9 +15,9 @@ require_once "session.php";
 		<link rel="stylesheet" href="./css/main.css" />
 		<link rel="stylesheet" href="./css/item.css" />
 		<!-- js -->
-		<script src="./js/main.js" defer></script>
 		<script src="./js/cart.js" defer></script>
 	</head>
+
 	<body>
 		<section class="ad">
 			<p class="small bold">
@@ -24,6 +25,8 @@ require_once "session.php";
 				000 РУБ. >
 			</p>
 		</section>
+
+		<?php require_once ('./header.php'); ?>
 
 		<main>
 			<section class="item-container">
@@ -55,12 +58,7 @@ require_once "session.php";
 						<button class="btn-primary" id="buy-jewerly">Добавить в корзину</button>
 						<hr />
 						<div class="delivery">
-							<img
-								src="./assets/icons/delivery.png"
-								width="16"
-								height="16"
-								alt="delivery > "
-							/>
+							<img src="./assets/icons/delivery.png" width="16" height="16" alt="delivery > " />
 							<p>Бесплатная доставка, бесплатный 30-дневный возврат</p>
 						</div>
 					</section>
@@ -91,14 +89,10 @@ require_once "session.php";
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
 				</p>
-				<a
-					href="https://yandex.ru/maps/-/CDFvFIkT"
-					target="_blank"
-					class="btn-secondary"
-					>Посмотреть на карте</a
-				>
+				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
 		</main>
+		<?php require_once ('./footer.php'); ?>
 
 		<section class="cr">
 			<p class="small">&copy; BOSEOK, 2024</p>
@@ -108,4 +102,5 @@ require_once "session.php";
 			</a>
 		</section>
 	</body>
+
 </html>
