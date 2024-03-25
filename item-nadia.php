@@ -13,6 +13,8 @@ require_once "session.php";
 		<link rel="stylesheet" href="./css/item.css" />
 		<!-- js -->
 		<script src="./js/main.js" defer></script>
+		<script src="./js/cart.js" defer></script>
+		<!-- reviews js -->
 		<script src="./js/nadia.js" defer></script>
 	</head>
 	<body>
