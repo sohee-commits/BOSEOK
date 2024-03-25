@@ -38,9 +38,13 @@ header.innerHTML += `
 
 let footer = document.createElement(`footer`);
 footer.innerHTML += `
-  <div class="logo">
-    <a href="./index.php" class="h1">boseok</a>
-  </div>
+  <section>
+    <div class="logo">
+      <a href="./index.php" class="h1">boseok</a>
+    </div>
+    <a href="./about.php" class="small">О нас</a>
+    <a href="./news.php" class="small">Новости</a>
+  </section>
   <section>
     <p class="bold">Категории</p>
     <a href="./earrings.php" class="small">Серьги</a>
