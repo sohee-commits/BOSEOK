@@ -94,6 +94,7 @@ require_once "database.php";
             $r_email = $_POST["r-email"];
             $r_password = $_POST["r-password"];
             $r_passwordRepeat = $_POST["r-password-repeat"];
+            $r_address = $_POST["r-address"];
 
             $r_passwordHash = password_hash($r_password, PASSWORD_DEFAULT);
 
@@ -117,8 +118,8 @@ require_once "database.php";
             } else {
               // Prepare the SQL statement
               $r_passwordHash = password_hash($r_password, PASSWORD_DEFAULT);
-              $stmt = $conn->prepare("INSERT INTO users (name, surname, parent_name, email, password) VALUES (?, ?, ?, ?, ?)");
-              $stmt->bind_param("sssss", $r_name, $r_surname, $r_parentName, $r_email, $r_passwordHash);
+              $stmt = $conn->prepare("INSERT INTO users (name, surname, parent_name, email, address, password) VALUES (?, ?, ?, ?, ?)");
+              $stmt->bind_param("sssss", $r_name, $r_surname, $r_parentName, $r_email, $r_address, $r_passwordHash);
 
               // Execute the statement
               if ($stmt->execute()) {
@@ -154,6 +155,9 @@ require_once "database.php";
           <label for="r-password-repeat"></label>
           <input type="password" id="r-password-repeat" name="r-password-repeat" placeholder="Повторите пароль"
             autocomplete="current-password" required />
+          <!-- address -->
+          <label for="r_address"></label>
+          <input type="text" id="r_address" name="r_address" placeholder="Адрес" required />
           <p>
             Пароль должен состоять из восьми или более символов латинского
             алфавита, содержать заглавные и строчные буквы, цифры.

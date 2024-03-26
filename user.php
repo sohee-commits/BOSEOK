@@ -53,6 +53,11 @@ $user = $result->fetch_assoc();
 					<p class="input" id="email">
 						<?php echo $user["email"]; ?>
 					</p>
+					<?php
+					if (!empty ($user["address"]) && $user["address"] !== '-') {
+						echo "<p class='input' id='email'>" . $user["address"] . "</p>";
+					}
+					?>
 					<label for="send-ads">
 						<input type="checkbox" name="send-ads" id="send-ads" checked />
 						Присылайте мне на электронную почту новости и предложения BOSEOK.
