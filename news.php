@@ -8,7 +8,7 @@ require_once "session.php";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Коллекция YeonHwa | BOSEOK - Серьги, Кольца и другие Ювелирные изделия
+      Новости | BOSEOK - Серьги, Кольца и другие Ювелирные изделия
     </title>
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon" />
     <!-- css -->

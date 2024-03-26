@@ -30,6 +30,10 @@ hr {
 		width: 12.5rem;
 		height: 12.5rem;
 	}
+
+	@media (max-width: 600px) {
+		flex-direction: column;
+	}
 }
 
 .info {
@@ -46,6 +50,10 @@ hr {
 		align-items: flex-start;
 		justify-content: space-between;
 		gap: 1rem;
+
+		@media (max-width: 600px) {
+			flex-direction: column;
+		}
 	}
 
 	& > div {
