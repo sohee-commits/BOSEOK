@@ -38,6 +38,4 @@ fetch('data.php')
  .catch(error => console.error('Ошибка:', error));
 
 
-
-
 UPDATE users SET cart = somethingHere WHERE users id = ?;
