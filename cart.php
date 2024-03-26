@@ -4,7 +4,7 @@ if (!isset ($_SESSION["user"])) {
 	header("Location: not-authorized.php");
 }
 
-// обработка корзины
+// ОБРАБОТКА КОРЗИНЫ 
 
 // подключение бд файла для conn
 require_once "database.php";
@@ -12,11 +12,12 @@ require_once "database.php";
 // получение user id для получения данных корзины <-- точно надо?
 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->bind_param("s", $_SESSION["user"]);
-$userId = $user['id'];
 
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
+
+$userId = $user['id'];
 
 // проверяет, является ли текущий HTTP-запрос POST-запросом
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
