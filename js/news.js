@@ -1,5 +1,10 @@
 const news = [
 	{
+		title: '“BOSEOK” официально открыт',
+		date: '01/03/24',
+		src: 'index/where/where',
+	},
+	{
 		title: 'Добавлен раздел “Кольца”',
 		date: '15/03/24',
 		src: 'jewerly/Nadia',
@@ -15,9 +20,9 @@ const news = [
 		src: 'jewerly/Yaretzi',
 	},
 	{
-		title: '“BOSEOK” официально открыт',
-		date: '25/03/24',
-		src: 'index/where/where',
+		title: 'Появление веб-сайта “BOSEOK”',
+		date: '29/03/24',
+		src: 'jewerly/where-2',
 	},
 ];
 
