@@ -3,6 +3,10 @@ require_once "session.php";
 if (!isset($_SESSION["user"])) {
 	header("Location: not-authorized.php");
 }
+
+if (isset($_SESSION['response'])) {
+	$response = $_SESSION['response']; // Извлечение данных из сессии
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,42 +41,6 @@ if (!isset($_SESSION["user"])) {
 				</section>
 				<hr />
 				<section class="items" id="cart-items">
-					<a href="./item-alveena.php" class="item">
-						<div class="image">
-							<img src="./assets/jewerly/Alveena.jpg" alt="preview" />
-						</div>
-						<div class="info">
-							<div class="text">
-								<p id="item-name" class="bold h2">Alveena</p>
-								<p class="h2" id="item-price"> ₽ 10 500 </p>
-							</div>
-							<div>
-								<span class="bold">Тип:</span>
-								<span id="item-type">Ожерелье</span>
-							</div>
-							<button>
-								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
-							</button>
-						</div>
-					</a>
-					<a href="./item-demi.php" class="item">
-						<div class="image">
-							<img src="./assets/jewerly/Demi.jpg" alt="preview" />
-						</div>
-						<div class="info">
-							<div class="text">
-								<p id="item-name" class="bold h2">Demi</p>
-								<p class="h2" id="item-price"> ₽ 17 900 </p>
-							</div>
-							<div>
-								<span class="bold">Тип:</span>
-								<span id="item-type">Ожерелье</span>
-							</div>
-							<button>
-								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
-							</button>
-						</div>
-					</a>
 				</section>
 			</section>
 			<section class="where">
@@ -98,25 +66,61 @@ if (!isset($_SESSION["user"])) {
 			</a>
 		</section>
 
+		<?php
+		echo "
 		<script>
+    	window.responseData = " . json_encode($response) . ";
+			console.log(responseData);
+		</script>
+		";
+		?>
+		<script>
+			let jewerlyObj = JSON.parse(window.responseData); // str
+			jewerlyObj = jewerlyObj.replace('u20bd', '₽');
+			jewerlyObj = JSON.parse(jewerlyObj); // obj
+			console.log(jewerlyObj);
+
+			if (Object.values(jewerlyObj).some(value => [
+				'Petite Elodie',
+				'Demi',
+				'Petite',
+				'Petite Comfort Fit Solitaire',
+				'Camellia Milgrain',
+				'Nadia',
+				'Luxe Viviana',
+				'Aria Three',
+			].includes(value))) {
+				type = 'Кольцо';
+			} else if (Object.values(jewerlyObj).some(value => [
+				'Lunette',
+				'Versailles',
+				'Marseille',
+				'Flair',
+				'Sienna',
+				'Yvette',
+				'Ballad',
+				'Eternity',
+			].includes(value))) {
+				type = 'Серьги';
+			} else {
+				type = 'Ожерелье';
+			}
+
 			let cartNode = document.querySelector(`#cart-items`);
 
-			console.log(responseJewerly);
-
-			let cartItem = document.createElement('div');
-			cartItem.innerHTML += `
-			<a href="./item-${responseJewerly['name'].toLowerCase()}.php" class="item">
+			cartNode.innerHTML += `
+			<a href="./item-${jewerlyObj['name'].toLowerCase()}.php" class="item">
 				<div class="image">
-					<img src="./assets/jewerly/${responseJewerly['name']}.jpg" alt="preview" />
+					<img src="./assets/jewerly/${jewerlyObj['name']}.jpg" alt="preview" />
 				</div>
 				<div class="info">
 					<div class="text">
-						<p id="item-name" class="bold h2">${responseJewerly['name']}</p>
-						<p class="h2" id="item-price"> ${responseJewerly['price']} </p>
+						<p id="item-name" class="bold h2">${jewerlyObj['name']}</p>
+						<p class="h2" id="item-price"> ${jewerlyObj['price']} </p>
 					</div>
 					<div>
 						<span class="bold">Тип:</span>
-						<span id="item-type">ТИП ДОБАВИТЬ</span>
+						<span id="item-type">${type}</span>
 					</div>
 					<button>
 						<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
@@ -125,7 +129,19 @@ if (!isset($_SESSION["user"])) {
 			</a>
 			`;
 
-			cartNode.innerHTML += cartItem;
+			let checkout = document.querySelector(`#checkout`);
+
+			checkout.addEventListener(`click`, () => {
+				checkout.classList.toggle(`done`);
+				let cartNode = document.querySelector(`#cart-items`);
+
+				if (checkout.classList.contains(`done`)) {
+					checkout.innerHTML = `Оформлено`;
+					cartNode.innerHTML = ``;
+				} else {
+					checkout.innerHTML = `Оформить`;
+				}
+			});
 		</script>
 	</body>
 

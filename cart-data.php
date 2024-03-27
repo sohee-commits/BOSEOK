@@ -51,6 +51,9 @@ if ($result->num_rows > 0) {
 
   // я так понимаю здесь оставляю json
   $response = json_encode($row['cart']);
+  
+  // Сохранение данных в сессии
+  $_SESSION['response'] = $response;
   echo var_dump($response);
 } else {
   echo json_encode(array("status" => "error", "message" => "No data found"));
@@ -58,4 +61,3 @@ if ($result->num_rows > 0) {
 // закрывает соединение с базой данных <-- мне это точно надо?
 // $conn->close();
 exit;
-?>
