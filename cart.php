@@ -128,21 +128,26 @@ if (isset($_SESSION['response'])) {
 				</div>
 			</a>
 			`;
+			<?php
+			echo "
+			<script>
+				let checkout = document.querySelector(`#checkout`);
 
-			let checkout = document.querySelector(`#checkout`);
+				checkout.addEventListener(`click`, () => {
+					checkout.classList.toggle(`done`);
+					let cartNode = document.querySelector(`#cart-items`);
 
-			checkout.addEventListener(`click`, () => {
-				checkout.classList.toggle(`done`);
-				let cartNode = document.querySelector(`#cart-items`);
+					if (checkout.classList.contains(`done`)) {
+						checkout.innerHTML = `Оформлено`;
+						cartNode.innerHTML = ``;
+						" . $_SESSION['response'] = null . "
+					} else {
+						checkout.innerHTML = `Оформить`;
+					}
+				});
+			</script>
+			"
+				?>
+	</body >
 
-				if (checkout.classList.contains(`done`)) {
-					checkout.innerHTML = `Оформлено`;
-					cartNode.innerHTML = ``;
-				} else {
-					checkout.innerHTML = `Оформить`;
-				}
-			});
-		</script>
-	</body>
-
-</html>
+</html >
