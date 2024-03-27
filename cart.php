@@ -3,63 +3,9 @@ require_once "session.php";
 if (!isset($_SESSION["user"])) {
 	header("Location: not-authorized.php");
 }
-
-// ОБРАБОТКА КОРЗИНЫ 
-
-// подключение бд файла для conn
-require_once "database.php";
-
-// получение user id для получения данных корзины <-- точно надо?
-$stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
-$stmt->bind_param("s", $_SESSION["user"]);
-
-$stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
-
-$userId = $user['id'];
-
-// проверяет, является ли текущий HTTP-запрос POST-запросом
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	// чтение входных данных из тела запроса
-	// и преобразование строки JSON в массив PHP
-	// true => рез-т ассоц. массив, а не объект <-- зачем?
-	$data = json_decode(file_get_contents('php://input'), true);
-
-	// преобразование в json
-	$cartData = json_encode($data);
-	// обновление данных 
-	$sql = "UPDATE users SET cart = '$cartData' WHERE id = $userId";
-
-	//  true, если таблица обновилась
-	if ($conn->query($sql) === TRUE) {
-		echo json_encode(array("status" => "success"));
-	} else {
-		echo json_encode(array("status" => "error", "message" => $conn->error));
-	}
-}
-
-// получение данных из базы данных
-$sql = "SELECT cart FROM users WHERE id = $userId";
-$result = $conn->query($sql);
-
-//  нашелся ли юзер с его корзиной
-if ($result->num_rows > 0) {
-	// fetch_assoc извлекает данные из колонки cart для пользователя 
-	$row = $result->fetch_assoc();
-	// преобразует строку JSON, содержащуюся в $row['cart'],
-	// обратно в массив PHP
-	echo json_encode(json_decode($row['cart']));
-} else {
-	echo json_encode(array("status" => "error", "message" => "No data found"));
-}
-
-// закрывает соединение с базой данных <-- мне это точно надо?
-// $conn->close();
-
 ?>
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 	<head>
 		<meta charset="UTF-8" />
@@ -91,7 +37,7 @@ if ($result->num_rows > 0) {
 				</section>
 				<hr />
 				<section class="items" id="cart-items">
-					<item class="item">
+					<a href="./item-alveena.php" class="item">
 						<div class="image">
 							<img src="./assets/jewerly/Alveena.jpg" alt="preview" />
 						</div>
@@ -108,7 +54,25 @@ if ($result->num_rows > 0) {
 								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
 							</button>
 						</div>
-					</item>
+					</a>
+					<a href="./item-demi.php" class="item">
+						<div class="image">
+							<img src="./assets/jewerly/Demi.jpg" alt="preview" />
+						</div>
+						<div class="info">
+							<div class="text">
+								<p id="item-name" class="bold h2">Demi</p>
+								<p class="h2" id="item-price"> ₽ 17 900 </p>
+							</div>
+							<div>
+								<span class="bold">Тип:</span>
+								<span id="item-type">Ожерелье</span>
+							</div>
+							<button>
+								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
+							</button>
+						</div>
+					</a>
 				</section>
 			</section>
 			<section class="where">
