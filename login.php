@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset ($_SESSION["user"])) {
+if (isset($_SESSION["user"])) {
   header("Location: user.php");
 }
 
@@ -12,7 +12,7 @@ require_once "database.php";
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
   <head>
     <meta charset="UTF-8" />
@@ -43,7 +43,7 @@ require_once "database.php";
         <form action="login.php" method="post">
           <!-- PHP CODE -->
           <?php
-          if (isset ($_POST["login"])) {
+          if (isset($_POST["login"])) {
             $email = $_POST["email"];
             $password = $_POST["password"];
 
@@ -87,7 +87,7 @@ require_once "database.php";
         <form action="login.php" method="post">
           <!-- PHP CODE -->
           <?php
-          if (isset ($_POST["register"])) {
+          if (isset($_POST["register"])) {
             $r_name = $_POST["r-name"];
             $r_surname = $_POST["r-surname"];
             $r_parentName = $_POST["r-parent-name"];

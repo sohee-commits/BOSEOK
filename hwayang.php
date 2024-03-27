@@ -2,7 +2,7 @@
 require_once "session.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 	<head>
 		<meta charset="UTF-8" />
@@ -49,7 +49,7 @@ require_once "session.php";
 				</p>
 				<a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
 			</section>
-		</main> 
+		</main>
 
 		<?php require_once ('./footer.php'); ?>
 

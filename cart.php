@@ -1,6 +1,6 @@
 <?php
 require_once "session.php";
-if (!isset ($_SESSION["user"])) {
+if (!isset($_SESSION["user"])) {
 	header("Location: not-authorized.php");
 }
 
@@ -59,7 +59,7 @@ if ($result->num_rows > 0) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 	<head>
 		<meta charset="UTF-8" />

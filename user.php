@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset ($_SESSION["user"])) {
+if (!isset($_SESSION["user"])) {
 	header("Location: login.php");
 	exit();
 }
@@ -16,7 +16,7 @@ $user = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 	<head>
 		<meta charset="UTF-8" />
@@ -54,7 +54,7 @@ $user = $result->fetch_assoc();
 						<?php echo $user["email"]; ?>
 					</p>
 					<?php
-					if (!empty ($user["address"]) && $user["address"] !== '-') {
+					if (!empty($user["address"]) && $user["address"] !== '-') {
 						echo "<p class='input' id='email'>" . $user["address"] . "</p>";
 					}
 					?>
