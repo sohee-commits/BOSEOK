@@ -14,59 +14,65 @@
 	gap: 2rem;
 
 	text-align: right;
+}
 
-	.intr-h {
-		font-weight: bold;
-		font-size: 1.75rem;
+.intr .intr-h {
+	font-weight: bold;
+	font-size: 1.75rem;
+}
+
+.intr .btns {
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	gap: 1rem;
+}
+
+@media (max-width: 700px) {
+	.intr .btns {
+		flex-wrap: wrap;
+		text-align: center;
 	}
 
-	.btns {
-		display: flex;
-		align-items: flex-end;
-		justify-content: flex-end;
-		gap: 1rem;
-	}
-
-	@media (max-width: 700px) {
-		.btns {
-			flex-wrap: wrap;
-			text-align: center;
-		}
-
-		.intr-h {
-			font-size: 1.25rem;
-		}
+	.intr .intr-h {
+		font-size: 1.25rem;
 	}
 }
 
 .categories {
 	display: grid;
 	gap: 2rem;
+}
 
-	.cards {
-		display: grid;
-		gap: 2rem;
-		grid-template-columns: repeat(4, 1fr);
-		place-content: center;
-
-		.card {
-			display: grid;
-			gap: 1rem;
-			text-align: center;
-		}
-
-		@media (max-width: 800px) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-
-		@media (max-width: 600px) {
-			grid-template-columns: repeat(2, 1fr);
-		}
-
-		@media (max-width: 500px) {
-			grid-template-columns: 1fr;
-		}
+@media (max-width: 800px) {
+	.categories {
+		grid-template-columns: repeat(3, 1fr);
 	}
+}
+
+@media (max-width: 600px) {
+	.categories {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 500px) {
+	.categories {
+		grid-template-columns: 1fr;
+	}
+}
+
+.categories .cards .card {
+	display: grid;
+	gap: 1rem;
+	text-align: center;
+}
+
+.categories .cards {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(4, 1fr);
+	place-content: center;
 }
 
 .sale {
@@ -78,40 +84,44 @@
 
 	color: var(--white);
 	background-color: var(--main);
+}
 
-	.text {
-		display: grid;
-		gap: 0.5rem;
-	}
-
-	img {
-		width: 4.7rem;
-		height: 2.8rem;
-	}
-
-	@media (max-width: 500px) {
+@media (max-width: 500px) {
+	.sale {
 		align-items: center;
 		flex-wrap: wrap;
 	}
+}
+
+.sale .text {
+	display: grid;
+	gap: 0.5rem;
+}
+
+.sale img {
+	width: 4.7rem;
+	height: 2.8rem;
 }
 
 .collections {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 2rem;
+}
 
-	.coll {
-		display: grid;
-		gap: 1.25rem;
-	}
-
-	.image {
-		height: 31.25rem;
-	}
-
-	@media (max-width: 900px) {
+@media (max-width: 900px) {
+	.collections {
 		grid-template-columns: 1fr;
 	}
+}
+
+.collections .coll {
+	display: grid;
+	gap: 1.25rem;
+}
+
+.collections .image {
+	height: 31.25rem;
 }
 
 .gift {
@@ -121,31 +131,33 @@
 	padding: 2rem;
 
 	background-color: var(--main);
+}
 
-	.text {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		gap: 1.25rem;
-
-		color: var(--white);
-
-		.btn {
-			width: fit-content;
-			color: inherit;
-			border: 0.1rem solid var(--white);
-			padding: 1rem;
-		}
-
-		.btn:hover {
-			color: var(--main);
-			background-color: var(--white);
-		}
-	}
-
-	@media (max-width: 900px) {
+@media (max-width: 900px) {
+	.gift {
 		grid-template-columns: 1fr;
 	}
+}
+
+.gift .text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 1.25rem;
+
+	color: var(--white);
+}
+
+.gift .text .btn {
+	width: fit-content;
+	color: inherit;
+	border: 0.1rem solid var(--white);
+	padding: 1rem;
+}
+
+.gift .text .btn:hover {
+	color: var(--main);
+	background-color: var(--white);
 }
 
 .inspo {
@@ -154,15 +166,15 @@
 
 	color: var(--white);
 	background-color: var(--main);
+}
 
-	.h2 {
-		margin-bottom: 2rem;
-	}
+.inspo .h2 {
+	margin-bottom: 2rem;
+}
 
-	.images {
-		display: flex;
-		gap: 1rem;
-		padding-bottom: 1rem;
-		overflow-x: scroll;
-	}
+.inspo .images {
+	display: flex;
+	gap: 1rem;
+	padding-bottom: 1rem;
+	overflow-x: scroll;
 }

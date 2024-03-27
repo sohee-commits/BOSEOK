@@ -76,9 +76,9 @@ require_once "database.php";
       </section>
 
       <section class="or">
-        <div></div>
+        <div class="hr"></div>
         <p>ИЛИ</p>
-        <div></div>
+        <div class="hr"></div>
       </section>
 
       <section class="register">

@@ -1,11 +1,11 @@
 .user-info {
 	display: grid;
 	gap: 1.25rem;
+}
 
-	label[for='send-ads'] {
-		display: flex;
-		gap: 0.5rem;
-	}
+.user-info label[for='send-ads'] {
+	display: flex;
+	gap: 0.5rem;
 }
 
 .user {

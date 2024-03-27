@@ -213,69 +213,66 @@ header img {
 	padding: 0.5rem;
 	text-align: center;
 }
+header .head {
+	padding: 2rem;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	border-bottom: 0.1rem solid var(--lgray);
+}
 
-header {
-	.head {
-		padding: 2rem;
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		border-bottom: 0.1rem solid var(--lgray);
+header [class$='-info'] {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+header .inner {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+header .right {
+	justify-content: flex-end;
+}
+
+header img {
+	width: 0.75rem;
+	height: 0.75rem;
+}
+
+header nav {
+	text-align: center;
+	text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+	gap: 2rem;
+}
+
+header .head,
+header nav {
+	padding: 2rem;
+}
+
+@media (max-width: 1230px) {
+	header .store-info {
+		flex-direction: column;
 	}
+}
 
-	[class$='-info'] {
-		display: flex;
-		align-items: center;
+@media (max-width: 730px) {
+	header .head {
+		grid-template-columns: 1fr;
+		place-items: center;
 		gap: 2rem;
 	}
 
-	.inner {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
+	header nav {
+		flex-direction: column;
 	}
 
-	.right {
-		justify-content: flex-end;
-	}
-
-	img {
-		width: 0.75rem;
-		height: 0.75rem;
-	}
-
-	nav {
-		text-align: center;
-		text-transform: uppercase;
-		display: flex;
-		justify-content: center;
-		gap: 2rem;
-	}
-
-	.head,
-	nav {
-		padding: 2rem;
-	}
-
-	@media (max-width: 1230px) {
-		.store-info {
-			flex-direction: column;
-		}
-	}
-
-	@media (max-width: 730px) {
-		.head {
-			grid-template-columns: 1fr;
-			place-items: center;
-			gap: 2rem;
-		}
-
-		nav {
-			flex-direction: column;
-		}
-
-		.logo {
-			grid-row-start: 1;
-		}
+	header .logo {
+		grid-row-start: 1;
 	}
 }
 
@@ -284,32 +281,32 @@ main {
 	gap: 4rem;
 	padding: 0 2rem;
 	margin-bottom: 4rem;
+}
 
-	.where {
-		display: grid;
-		gap: 1.5rem;
+main .where {
+	display: grid;
+	gap: 1.5rem;
+}
 
-		.image {
-			height: 31.25rem;
-		}
+main .where .image {
+	height: 31.25rem;
+}
 
-		@media (max-width: 1000px) {
-			.image {
-				height: 18.75rem;
-			}
-		}
+@media (max-width: 1000px) {
+	main .where .image {
+		height: 18.75rem;
+	}
+}
 
-		@media (max-width: 600px) {
-			.image {
-				height: 12.5rem;
-			}
-		}
+@media (max-width: 600px) {
+	main .where .image {
+		height: 12.5rem;
+	}
+}
 
-		@media (max-width: 360px) {
-			.image {
-				height: 7rem;
-			}
-		}
+@media (max-width: 360px) {
+	main .where .image {
+		height: 7rem;
 	}
 }
 
@@ -319,55 +316,58 @@ footer {
 	justify-content: space-between;
 	gap: 2rem;
 	padding: 2rem;
-
 	border-top: 0.1rem solid var(--lgray);
+}
 
-	section {
-		display: grid;
-		gap: 0.5rem;
-	}
+footer section {
+	display: grid;
+	gap: 0.5rem;
+}
 
-	p.bold {
-		font-family: 'Montserrat Alternates', sans-serif;
-	}
+footer p.bold {
+	font-family: 'Montserrat Alternates', sans-serif;
+}
 
-	form {
-		width: 100%;
-		display: flex;
-		gap: 0px;
+footer form {
+	width: 100%;
+	display: flex;
+	gap: 0px;
+}
 
-		label {
-			display: none;
-		}
+footer form label {
+	display: none;
+}
 
-		input {
-			width: 100%;
-			padding: 0.8rem;
-			font-size: 0.8rem;
-		}
+footer form input {
+	width: 100%;
+	padding: 0.8rem;
+	font-size: 0.8rem;
+}
 
-		button {
-			border: 0.1rem solid var(--main);
-			background-color: var(--main);
-			padding: 0.43rem;
-		}
+footer form button {
+	border: 0.1rem solid var(--main);
+	background-color: var(--main);
+	padding: 0.43rem;
+}
 
-		button:hover {
-			cursor: pointer;
-			opacity: 0.9;
-		}
+footer form button:hover {
+	cursor: pointer;
+	opacity: 0.9;
+}
 
-		button img {
-			width: 1.5rem;
-			height: 1.5rem;
-		}
-	}
+footer form button img {
+	width: 1.5rem;
+	height: 1.5rem;
+}
 
-	@media (max-width: 1000px) {
+@media (max-width: 1000px) {
+	footer {
 		flex-wrap: wrap;
 	}
+}
 
-	@media (max-width: 500px) {
+@media (max-width: 500px) {
+	footer {
 		flex-direction: column;
 	}
 }
@@ -379,18 +379,17 @@ footer {
 	flex-wrap: wrap;
 	gap: 0.5rem;
 	padding: 0.5rem 2rem;
-
 	color: var(--white);
 	background-color: var(--main);
+}
 
-	a {
-		text-decoration: underline;
-		text-underline-offset: 0.1rem;
-	}
+.cr a {
+	text-decoration: underline;
+	text-underline-offset: 0.1rem;
+}
 
-	a:hover {
-		color: inherit;
-	}
+.cr a:hover {
+	color: inherit;
 }
 
 @media (max-width: 500px) {

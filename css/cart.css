@@ -1,13 +1,13 @@
 .cart {
 	display: grid;
 	gap: 1rem;
+}
 
-	.cart-action {
-		display: flex;
-		align-items: flex-end;
-		justify-content: space-between;
-		gap: 1rem;
-	}
+.cart .cart-action {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 1rem;
 }
 
 hr {
@@ -25,15 +25,17 @@ hr {
 .item {
 	display: flex;
 	gap: 2rem;
+}
 
-	.image {
-		width: 12.5rem;
-		height: 12.5rem;
-	}
-
-	@media (max-width: 600px) {
+@media (max-width: 600px) {
+	.item {
 		flex-direction: column;
 	}
+}
+
+.item .image {
+	width: 12.5rem;
+	height: 12.5rem;
 }
 
 .info {
@@ -43,20 +45,22 @@ hr {
 	align-items: flex-end;
 	justify-content: space-between;
 	gap: 1rem;
+}
 
-	.text {
-		width: 100%;
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: 1rem;
+.info > div {
+	width: 100%;
+}
 
-		@media (max-width: 600px) {
-			flex-direction: column;
-		}
-	}
+.info .text {
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+}
 
-	& > div {
-		width: 100%;
+@media (max-width: 600px) {
+	.info {
+		flex-direction: column;
 	}
 }
