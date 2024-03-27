@@ -7,6 +7,10 @@ if (!isset($_SESSION["user"])) {
 if (isset($_SESSION['response'])) {
 	$response = $_SESSION['response']; // Извлечение данных из сессии
 }
+
+if (isset($_GET['setResponseToNull']) && $_GET['setResponseToNull'] === 'true') {
+	$_SESSION['response'] = null;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,39 +80,43 @@ if (isset($_SESSION['response'])) {
 		?>
 		<script>
 			let jewerlyObj = JSON.parse(window.responseData); // str
-			jewerlyObj = jewerlyObj.replace('u20bd', '₽');
-			jewerlyObj = JSON.parse(jewerlyObj); // obj
-			console.log(jewerlyObj);
+			if (jewerlyObj) {
+				jewerlyObj = jewerlyObj.replace('u20bd', '₽');
+				jewerlyObj = JSON.parse(jewerlyObj); // obj
+				console.log(jewerlyObj);
 
-			if (Object.values(jewerlyObj).some(value => [
-				'Petite Elodie',
-				'Demi',
-				'Petite',
-				'Petite Comfort Fit Solitaire',
-				'Camellia Milgrain',
-				'Nadia',
-				'Luxe Viviana',
-				'Aria Three',
-			].includes(value))) {
-				type = 'Кольцо';
-			} else if (Object.values(jewerlyObj).some(value => [
-				'Lunette',
-				'Versailles',
-				'Marseille',
-				'Flair',
-				'Sienna',
-				'Yvette',
-				'Ballad',
-				'Eternity',
-			].includes(value))) {
-				type = 'Серьги';
-			} else {
-				type = 'Ожерелье';
-			}
 
-			let cartNode = document.querySelector(`#cart-items`);
+				let type;
 
-			cartNode.innerHTML += `
+				if (Object.values(jewerlyObj).some(value => [
+					'Petite Elodie',
+					'Demi',
+					'Petite',
+					'Petite Comfort Fit Solitaire',
+					'Camellia Milgrain',
+					'Nadia',
+					'Luxe Viviana',
+					'Aria Three',
+				].includes(value))) {
+					type = 'Кольцо';
+				} else if (Object.values(jewerlyObj).some(value => [
+					'Lunette',
+					'Versailles',
+					'Marseille',
+					'Flair',
+					'Sienna',
+					'Yvette',
+					'Ballad',
+					'Eternity',
+				].includes(value))) {
+					type = 'Серьги';
+				} else {
+					type = 'Ожерелье';
+				}
+
+				let cartNode = document.querySelector(`#cart-items`);
+
+				cartNode.innerHTML += `
 			<a href="./item-${jewerlyObj['name'].toLowerCase()}.php" class="item">
 				<div class="image">
 					<img src="./assets/jewerly/${jewerlyObj['name']}.jpg" alt="preview" />
@@ -128,9 +136,7 @@ if (isset($_SESSION['response'])) {
 				</div>
 			</a>
 			`;
-			<?php
-			echo "
-			<script>
+
 				let checkout = document.querySelector(`#checkout`);
 
 				checkout.addEventListener(`click`, () => {
@@ -140,14 +146,16 @@ if (isset($_SESSION['response'])) {
 					if (checkout.classList.contains(`done`)) {
 						checkout.innerHTML = `Оформлено`;
 						cartNode.innerHTML = ``;
-						" . $_SESSION['response'] = null . "
+						// Send a request to the same PHP script with a parameter
+						var xhr = new XMLHttpRequest();
+						xhr.open('GET', '?setResponseToNull=true', true);
+						xhr.send();
 					} else {
 						checkout.innerHTML = `Оформить`;
 					}
 				});
-			</script>
-			"
-				?>
-	</body >
+			}
+		</script>
+	</body>
 
-</html >
+</html>

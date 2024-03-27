@@ -47,4 +47,3 @@ if (buy) {
 		return cartJewerly;
 	});
 }
-
