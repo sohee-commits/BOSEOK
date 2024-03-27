@@ -97,6 +97,36 @@ if (!isset($_SESSION["user"])) {
 				developer: sohee-commits
 			</a>
 		</section>
+
+		<script>
+			let cartNode = document.querySelector(`#cart-items`);
+
+			console.log(responseJewerly);
+
+			let cartItem = document.createElement('div');
+			cartItem.innerHTML += `
+			<a href="./item-${responseJewerly['name'].toLowerCase()}.php" class="item">
+				<div class="image">
+					<img src="./assets/jewerly/${responseJewerly['name']}.jpg" alt="preview" />
+				</div>
+				<div class="info">
+					<div class="text">
+						<p id="item-name" class="bold h2">${responseJewerly['name']}</p>
+						<p class="h2" id="item-price"> ${responseJewerly['price']} </p>
+					</div>
+					<div>
+						<span class="bold">Тип:</span>
+						<span id="item-type">ТИП ДОБАВИТЬ</span>
+					</div>
+					<button>
+						<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
+					</button>
+				</div>
+			</a>
+			`;
+
+			cartNode.innerHTML += cartItem;
+		</script>
 	</body>
 
 </html>

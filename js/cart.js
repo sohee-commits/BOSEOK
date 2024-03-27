@@ -27,6 +27,40 @@ async function sendFileAndStoreResponse() {
 	return data;
 }
 
+// let displayItem = (responseJewerly, cartNode) => {
+// 	responseJewerly = responseJewerly.substring(73);
+// 	responseJewerly = responseJewerly.substring(1, responseJewerly.length - 2);
+// 	let responseObject = JSON.parse(responseJewerly);
+// 	console.log(responseObject);
+
+// 	if (cartNode) {
+// 		let cartItem = document.createElement('div');
+// 		cartItem.innerHTML += `
+// 		<a href="./item-${responseJewerly['name'].toLowerCase()}.php" class="item">
+// 			<div class="image">
+// 				<img src="./assets/jewerly/${responseJewerly['name']}.jpg" alt="preview" />
+// 			</div>
+// 			<div class="info">
+// 				<div class="text">
+// 					<p id="item-name" class="bold h2">${responseJewerly['name']}</p>
+// 					<p class="h2" id="item-price"> ${responseJewerly['price']} </p>
+// 				</div>
+// 				<div>
+// 					<span class="bold">Тип:</span>
+// 					<span id="item-type">ТИП ДОБАВИТЬ</span>
+// 				</div>
+// 				<button>
+// 					<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
+// 				</button>
+// 			</div>
+// 		</a>
+// 		`;
+// 	}
+
+// 	console.log(typeof cartItem);
+// 	cartNode.innerHTML += cartItem;
+// };
+
 if (buy) {
 	buy.addEventListener(`click`, async () => {
 		// элемент
@@ -41,26 +75,11 @@ if (buy) {
 		// вывод присвоенных данных в консоль
 		console.log(cartJewerly);
 
-		let responseText = await sendFileAndStoreResponse();
-		console.log(responseText); // <script>window._applenosebook = 1</script>{"status":"success"}string(51) ""{\"name\":\"Alveena\",\"price\":\"u20bd 10 500\"}""
-		console.log(typeof responseText); // string
+		let responseJewerly = await sendFileAndStoreResponse();
+		responseJewerly = responseJewerly.substring(73);
+		responseJewerly = responseJewerly.substring(1, responseJewerly.length - 2);
+		responseJewerly = JSON.parse(responseJewerly);
 
-		responseText = responseText.substring(73);
-		console.log(responseText);
-
-		let responseObject = JSON.parse(responseText);
-		console.log(responseObject);
+		return responseJewerly;
 	});
 }
-
-// old method
-// fetch(`cart-data.php`, {
-// 	method: 'POST',
-// 	headers: {
-// 		'Content-Type': 'application/json',
-// 	},
-// 	body: jsonData,
-// })
-// 	.then((response) => response.text()) // php возвращает json
-// 	.then((data) => console.log(data)) // вывод полученных данных в консоль
-// 	.catch((error) => console.error('Error:', error));
