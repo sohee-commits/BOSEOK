@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // преобразование в json
   $cartData = json_encode($data);
   // обновление данных 
-  $sql = "UPDATE users SET cart = '$cartData' WHERE id = $userId";
+  $sql = "UPDATE users SET cart = CONCAT(COALESCE(cart, ''), '$cartData') WHERE id = $userId";
 
   //  true, если таблица обновилась
   if ($conn->query($sql) === TRUE) {
@@ -49,9 +49,8 @@ if ($result->num_rows > 0) {
   // обратно в массив PHP
   // echo json_encode(json_decode($row['cart']));
 
-  // я так понимаю здесь оставляю json
   $response = json_encode($row['cart']);
-  
+
   // Сохранение данных в сессии
   $_SESSION['response'] = $response;
   echo var_dump($response);
@@ -60,4 +59,5 @@ if ($result->num_rows > 0) {
 }
 // закрывает соединение с базой данных <-- мне это точно надо?
 // $conn->close();
+
 exit;

@@ -1,20 +1,22 @@
 // кнопка купить
 let buy = document.querySelector(`#buy-jewerly`);
 // название элемента
-let itemName = document.querySelector(`#item-name`).innerHTML;
+let itemName = document.querySelector(`#item-name`);
+if (itemName) itemName = itemName.innerHTML;
 // цена элемента
-let itemPrice = document.querySelector(`#item-price`).innerHTML;
+let itemPrice = document.querySelector(`#item-price`);
+if (itemPrice) itemPrice = itemPrice.innerHTML;
 
 // уведомление о добавлении к корзину
 let addAlert = document.createElement(`p`);
 addAlert.innerHTML = `Товар добавлен в корзину.`;
 
-// отправление и получение информациеи об элементе
+// отправление и получение информацией об элементе
 async function sendFileAndStoreResponse() {
 	// преобразование элемента в json
 	let jsonData = JSON.stringify(cartJewerly);
 
-	const response = await fetch('cart-data.php', {
+	const response = await fetch('cart.php', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',

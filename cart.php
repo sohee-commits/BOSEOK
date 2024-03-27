@@ -4,12 +4,59 @@ if (!isset($_SESSION["user"])) {
 	header("Location: not-authorized.php");
 }
 
-if (isset($_SESSION['response'])) {
-	$response = $_SESSION['response']; // Извлечение данных из сессии
+// ОБРАБОТКА КОРЗИНЫ 
+
+// подключение бд файла для $conn(ection)
+require_once "database.php";
+
+// получение user id для получения данных корзины <-- точно надо?
+$stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->bind_param("s", $_SESSION["user"]);
+
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+
+$userId = $user['id'];
+
+// проверяет, является ли текущий HTTP-запрос POST-запросом
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	// чтение входных данных из тела запроса
+	// и преобразование строки JSON в массив PHP
+	$data = json_decode(file_get_contents('php://input'), true);
+
+	// преобразование в json
+	$cartData = json_encode($data);
+	// обновление данных 
+	$sql = "UPDATE users SET cart = CONCAT(COALESCE(cart, ''), '$cartData') WHERE id = $userId";
+
+	//  true, если таблица обновилась
+	if ($conn->query($sql) === TRUE) {
+		echo json_encode(array("status" => "success"));
+	} else {
+		echo json_encode(array("status" => "error", "message" => $conn->error));
+	}
 }
 
-if (isset($_GET['setResponseToNull']) && $_GET['setResponseToNull'] === 'true') {
-	$_SESSION['response'] = null;
+// получение данных из базы данных
+$sql = "SELECT cart FROM users WHERE id = $userId";
+$result = $conn->query($sql);
+
+//  нашелся ли юзер с его корзиной
+if ($result->num_rows > 0) {
+	// fetch_assoc извлекает данные из колонки cart для пользователя 
+	$row = $result->fetch_assoc();
+	// преобразует строку JSON, содержащуюся в $row['cart'],
+	// обратно в массив PHP
+	// echo json_encode(json_decode($row['cart']));
+
+	$response = json_encode($row['cart']);
+
+	// Сохранение данных в сессии
+	$_SESSION['response'] = $response;
+	echo var_dump($response);
+} else {
+	echo json_encode(array("status" => "error", "message" => "No data found"));
 }
 ?>
 <!DOCTYPE html>
@@ -73,22 +120,24 @@ if (isset($_GET['setResponseToNull']) && $_GET['setResponseToNull'] === 'true') 
 		<?php
 		echo "
 		<script>
+    	window.userId = " . json_encode($userId) . ";
     	window.responseData = " . json_encode($response) . ";
 			console.log(responseData);
 		</script>
 		";
 		?>
 		<script>
-			let jewerlyObj = JSON.parse(window.responseData); // str
-			if (jewerlyObj) {
-				jewerlyObj = jewerlyObj.replace('u20bd', '₽');
-				jewerlyObj = JSON.parse(jewerlyObj); // obj
-				console.log(jewerlyObj);
-
+			let jewerlyCart = JSON.parse(window.responseData); // str
+			if (jewerlyCart) {
+				// make jewerlyCart an array of objects
+				jewerlyCart = jewerlyCart.replaceAll('u20bd', '₽');
+				jewerlyCart = '[' + jewerlyCart + ']';
+				jewerlyCart = jewerlyCart.replace(/}{/g, '},{');
+				jewerlyCart = JSON.parse(jewerlyCart); // obj
 
 				let type;
 
-				if (Object.values(jewerlyObj).some(value => [
+				if (jewerlyCart.some(item => [
 					'Petite Elodie',
 					'Demi',
 					'Petite',
@@ -97,9 +146,9 @@ if (isset($_GET['setResponseToNull']) && $_GET['setResponseToNull'] === 'true') 
 					'Nadia',
 					'Luxe Viviana',
 					'Aria Three',
-				].includes(value))) {
+				].includes(item.name))) {
 					type = 'Кольцо';
-				} else if (Object.values(jewerlyObj).some(value => [
+				} else if (jewerlyCart.some(item => [
 					'Lunette',
 					'Versailles',
 					'Marseille',
@@ -108,7 +157,7 @@ if (isset($_GET['setResponseToNull']) && $_GET['setResponseToNull'] === 'true') 
 					'Yvette',
 					'Ballad',
 					'Eternity',
-				].includes(value))) {
+				].includes(item.name))) {
 					type = 'Серьги';
 				} else {
 					type = 'Ожерелье';
@@ -116,26 +165,28 @@ if (isset($_GET['setResponseToNull']) && $_GET['setResponseToNull'] === 'true') 
 
 				let cartNode = document.querySelector(`#cart-items`);
 
-				cartNode.innerHTML += `
-			<a href="./item-${jewerlyObj['name'].toLowerCase()}.php" class="item">
-				<div class="image">
-					<img src="./assets/jewerly/${jewerlyObj['name']}.jpg" alt="preview" />
-				</div>
-				<div class="info">
-					<div class="text">
-						<p id="item-name" class="bold h2">${jewerlyObj['name']}</p>
-						<p class="h2" id="item-price"> ${jewerlyObj['price']} </p>
-					</div>
-					<div>
-						<span class="bold">Тип:</span>
-						<span id="item-type">${type}</span>
-					</div>
-					<button>
-						<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
-					</button>
-				</div>
-			</a>
-			`;
+				for (let i = 0; i < jewerlyCart.length; i++) {
+					cartNode.innerHTML += `
+					<a href="./item-${jewerlyCart[i]['name'].toLowerCase()}.php" class="item">
+						<div class="image">
+							<img src="./assets/jewerly/${jewerlyCart[i]['name']}.jpg" alt="preview" />
+						</div>
+						<div class="info">
+							<div class="text">
+								<p id="item-name" class="bold h2">${jewerlyCart[i]['name']}</p>
+								<p class="h2" id="item-price"> ${jewerlyCart[i]['price']} </p>
+							</div>
+							<div>
+								<span class="bold">Тип:</span>
+								<span id="item-type">${type}</span>
+							</div>
+							<button>
+								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
+							</button>
+						</div>
+					</a>
+					`;
+				}
 
 				let checkout = document.querySelector(`#checkout`);
 
@@ -146,14 +197,28 @@ if (isset($_GET['setResponseToNull']) && $_GET['setResponseToNull'] === 'true') 
 					if (checkout.classList.contains(`done`)) {
 						checkout.innerHTML = `Оформлено`;
 						cartNode.innerHTML = ``;
-						// Send a request to the same PHP script with a parameter
-						var xhr = new XMLHttpRequest();
-						xhr.open('GET', '?setResponseToNull=true', true);
-						xhr.send();
+						// Now you can use window.userId in your AJAX request
+						fetch('clear_cart.php', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/x-www-form-urlencoded',
+							},
+							body: `userId=${window.userId}`,
+						})
+							.then(response => response.json())
+							.then(data => {
+								if (data.status === 'success') {
+									console.log('Cart cleared successfully');
+								} else {
+									console.error('Failed to clear cart:', data.message);
+								}
+							})
+							.catch(error => console.error('Error:', error));
 					} else {
 						checkout.innerHTML = `Оформить`;
 					}
 				});
+
 			}
 		</script>
 	</body>
