@@ -44,20 +44,27 @@
 	gap: 2rem;
 }
 
+.categories .cards {
+	display: grid;
+	gap: 2rem;
+	grid-template-columns: repeat(4, 1fr);
+	place-content: center;
+}
+
 @media (max-width: 800px) {
-	.categories {
+	.categories .cards {
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
 @media (max-width: 600px) {
-	.categories {
+	.categories .cards {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media (max-width: 500px) {
-	.categories {
+	.categories .cards {
 		grid-template-columns: 1fr;
 	}
 }
@@ -66,13 +73,6 @@
 	display: grid;
 	gap: 1rem;
 	text-align: center;
-}
-
-.categories .cards {
-	display: grid;
-	gap: 2rem;
-	grid-template-columns: repeat(4, 1fr);
-	place-content: center;
 }
 
 .sale {
