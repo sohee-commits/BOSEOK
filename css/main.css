@@ -321,7 +321,7 @@ footer {
 
 footer section {
 	display: grid;
-	gap: 0.5rem;
+	gap: 0.625rem; /* 10px */
 }
 
 footer p.bold {

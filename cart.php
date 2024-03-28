@@ -228,12 +228,16 @@ if ($result->num_rows > 0) {
 					const delParent = delItem.parentElement;
 					const itemName = delParent.querySelector('#item-name').textContent;
 
+					let itemData = { userId: window.userId, itemName: itemName };
+					itemData = JSON.stringify(itemData);
+					console.log(itemData);
+
 					fetch('del-item.php', {
 						method: 'POST',
 						headers: {
-							'Content-Type': 'application/json',
+							'Content-Type': 'application/x-www-form-urlencoded',
 						},
-						body: JSON.stringify({ userId: window.userId, itemName: itemName }),
+						body: 'itemName=' + encodeURIComponent(itemName),
 					})
 						.then(response => response.json())
 						.then(data => {

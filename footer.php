@@ -31,9 +31,21 @@
       </button>
     </form>
     <div class="links">
-      <a href="https://vk.com">
-        <img src="./assets/footer/vk.png" alt="vk" /></a>
-      <img src="./assets/footer/email.png" alt="email" />
+      <a href="https://vk.com/kolledjoniks">
+        <img src="./assets/footer/1.png" alt="ОНИКС в vk" />
+      </a>
+      <a href="https://vk.com/club224467082">
+        <img src="./assets/footer/2.png" alt="ОНИКС в vk" />
+      </a>
+      <a href="https://vk.com/kpt_perm59">
+        <img src="./assets/footer/3.png" alt="ОНИКС в vk" />
+      </a>
+      <a href="https://vk.com/stud_activeonix">
+        <img src="./assets/footer/4.png" alt="ОНИКС в vk" />
+      </a>
+      <a href="https://vk.com/public101931168">
+        <img src="./assets/footer/5.png" alt="ОНИКС в vk" />
+      </a>
     </div>
   </section>
 </footer>

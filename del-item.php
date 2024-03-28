@@ -4,7 +4,8 @@ session_start(); // Start the session
 require_once "database.php";
 
 $userId = $_SESSION["user"];
-$itemName = $_POST['itemName']; // Assuming you're sending the item name to remove via POST
+parse_str(file_get_contents('php://input'), $_POST);
+$itemName = $_POST["itemName"];
 
 // Prepare the SQL statement to find the index of the item to remove
 $sql = "SELECT JSON_SEARCH(cart, 'one', ?) AS itemPath FROM users WHERE id = ?";

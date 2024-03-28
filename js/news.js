@@ -3,7 +3,7 @@ const news = [
 		title: '“BOSEOK” официально открыт',
 		date: '01/03/24',
 		src: 'index/where/where',
-		href: '#',
+		href: './new-boseok-opened.php',
 	},
 	{
 		title: 'Добавлен раздел “Кольца”',
@@ -15,19 +15,19 @@ const news = [
 		title: 'Добавлен раздел “Серьги”',
 		date: '16/03/24',
 		src: 'jewerly/Lunette',
-		href: '#',
+		href: './new-earrings-added.php',
 	},
 	{
 		title: 'Добавлен раздел “Ожерелья”',
 		date: '17/03/24',
 		src: 'jewerly/Yaretzi',
-		href: '#',
+		href: './new-necklace-added.php',
 	},
 	{
-		title: 'Появление веб-сайта “BOSEOK”',
+		title: 'Появление сайта “BOSEOK”',
 		date: '29/03/24',
 		src: 'index/where/where-2',
-		href: '#',
+		href: './new-boseok-website-added.php',
 	},
 ];
 
