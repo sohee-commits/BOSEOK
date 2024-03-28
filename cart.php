@@ -9,7 +9,7 @@ if (!isset($_SESSION["user"])) {
 // подключение бд файла для $conn(ection)
 require_once "database.php";
 
-// получение user id для получения данных корзины <-- точно надо?
+// получение user id для получения данных корзины 
 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->bind_param("s", $_SESSION["user"]);
 
@@ -198,12 +198,12 @@ if ($result->num_rows > 0) {
 						checkout.innerHTML = `Оформлено`;
 						cartNode.innerHTML = ``;
 						// Now you can use window.userId in your AJAX request
-						fetch('clear_cart.php', {
+						fetch('clean-cart.php', {
 							method: 'POST',
 							headers: {
-								'Content-Type': 'application/x-www-form-urlencoded',
+								'Content-Type': 'application/json',
 							},
-							body: `userId=${window.userId}`,
+							body: JSON.stringify({ userId: window.userId }),
 						})
 							.then(response => response.json())
 							.then(data => {
@@ -218,7 +218,6 @@ if ($result->num_rows > 0) {
 						checkout.innerHTML = `Оформить`;
 					}
 				});
-
 			}
 		</script>
 	</body>
