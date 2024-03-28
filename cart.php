@@ -54,7 +54,6 @@ if ($result->num_rows > 0) {
 
 	// Сохранение данных в сессии
 	$_SESSION['response'] = $response;
-	echo var_dump($response);
 } else {
 	echo json_encode(array("status" => "error", "message" => "No data found"));
 }
@@ -167,24 +166,28 @@ if ($result->num_rows > 0) {
 
 				for (let i = 0; i < jewerlyCart.length; i++) {
 					cartNode.innerHTML += `
-					<a href="./item-${jewerlyCart[i]['name'].toLowerCase()}.php" class="item">
+					<article class="item">
 						<div class="image">
 							<img src="./assets/jewerly/${jewerlyCart[i]['name']}.jpg" alt="preview" />
 						</div>
 						<div class="info">
 							<div class="text">
-								<p id="item-name" class="bold h2">${jewerlyCart[i]['name']}</p>
+								<a 
+									href="./item-${jewerlyCart[i]['name'].toLowerCase()}.php" 
+									id="item-name" 
+									class="bold h2">${jewerlyCart[i]['name']}
+								</a>
 								<p class="h2" id="item-price"> ${jewerlyCart[i]['price']} </p>
 							</div>
 							<div>
 								<span class="bold">Тип:</span>
 								<span id="item-type">${type}</span>
 							</div>
-							<button>
+							<button id="del-item">
 								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
 							</button>
 						</div>
-					</a>
+					</article>
 					`;
 				}
 
@@ -217,6 +220,31 @@ if ($result->num_rows > 0) {
 					} else {
 						checkout.innerHTML = `Оформить`;
 					}
+				});
+
+				let delItem = document.querySelector(`#del-item`);
+				delItem.addEventListener(`click`, () => {
+					console.log(`del item clicked!`);
+					const delParent = delItem.parentElement;
+					const itemName = delParent.querySelector('#item-name').textContent;
+
+					fetch('del-item.php', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({ userId: window.userId, itemName: itemName }),
+					})
+						.then(response => response.json())
+						.then(data => {
+							if (data.status === 'success') {
+								console.log('Item deleted successfully');
+								delParent.remove();
+							} else {
+								console.error('Failed to remove item:', data.message);
+							}
+						})
+						.catch(error => console.error('Error:', error));
 				});
 			}
 		</script>

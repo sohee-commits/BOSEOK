@@ -1,5 +1,8 @@
 <?php
 require_once "session.php";
+if (isset($_SESSION["user"])) {
+  header("Location: index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">

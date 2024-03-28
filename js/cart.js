@@ -8,8 +8,12 @@ let itemPrice = document.querySelector(`#item-price`);
 if (itemPrice) itemPrice = itemPrice.innerHTML;
 
 // уведомление о добавлении к корзину
-let addAlert = document.createElement(`p`);
-addAlert.innerHTML = `Товар добавлен в корзину.`;
+let alertAdded = document.createElement(`p`);
+let alertNotAdded = document.createElement(`a`);
+alertNotAdded.href = './login.php';
+
+alertAdded.innerHTML = `Товар добавлен в корзину.`;
+alertNotAdded.innerHTML = `Зарегистрируйтесь или войдите, чтобы добавить украшение в корзину.`;
 
 // отправление и получение информацией об элементе
 async function sendFileAndStoreResponse() {
@@ -29,6 +33,8 @@ async function sendFileAndStoreResponse() {
 	return data;
 }
 
+console.log(window._applenosebook);
+
 if (buy) {
 	buy.addEventListener(`click`, async () => {
 		// элемент
@@ -37,8 +43,12 @@ if (buy) {
 			price: itemPrice,
 		};
 
-		// уведомить что элемент в корзине
-		buy.insertAdjacentElement('afterend', addAlert);
+		if (window._applenosebook !== undefined) {
+			// уведомить что элемент в корзине
+			buy.insertAdjacentElement('afterend', alertAdded);
+		} else {
+			buy.insertAdjacentElement('afterend', alertNotAdded);
+		}
 
 		// вывод присвоенных данных в консоль
 		console.log(cartJewerly);
