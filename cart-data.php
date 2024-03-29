@@ -8,7 +8,7 @@ if (!isset($_SESSION["user"])) {
 // подключение бд файла для $conn(ection)
 require_once "database.php";
 
-// получение user id для получения данных корзины <-- точно надо?
+// получение user id для получения данных корзины
 $stmt = $conn->prepare("SELECT * FROM users WHERE id = ?");
 $stmt->bind_param("s", $_SESSION["user"]);
 

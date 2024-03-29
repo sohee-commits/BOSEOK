@@ -18,7 +18,7 @@ alertNotAdded.innerHTML = `Зарегистрируйтесь или войди�
 // отправление и получение информацией об элементе
 async function sendFileAndStoreResponse() {
 	// преобразование элемента в json
-	let jsonData = JSON.stringify(cartJewerly);
+	let jsonData = JSON.stringify(cart);
 
 	const response = await fetch('cart.php', {
 		method: 'POST',
@@ -33,46 +33,65 @@ async function sendFileAndStoreResponse() {
 	return data;
 }
 
-console.log(window._applenosebook);
+console.log(window._applenosebook ? `user logged in` : `guest`);
 
-// так как перебор вернет ошибку если arr пустой
-// запишем туда 0
-let itemIDArr = [0];
-// по умолчанию id = 1
-let id = 1;
+let cart = [];
+let jewerly;
 
 if (buy) {
 	buy.addEventListener(`click`, async () => {
-		while (true) {
-			if (!itemIDArr.includes(id)) {
-				itemIDArr.push(id);
-				break;
-			} else {
-				id++;
-			}
-		}
-		console.log(itemIDArr);
-
-		// элемент
-		cartJewerly = {
-			name: itemName,
-			price: itemPrice,
-			// id: itemID,
-		};
-
+		// товар добавится в корзину только если юзер вошел
 		if (window._applenosebook !== undefined) {
-			// уведомить что элемент в корзине
 			buy.insertAdjacentElement('afterend', alertAdded);
+			// данные по умолчанию
+			let itemID = 1;
+			let jewerly = {
+				name: itemName,
+				price: itemPrice,
+				id: itemID,
+			};
+
+			// получаем данные user[cart]
+			let response = await fetch('get-data.php');
+			let currentCart = await response.text();
+
+			// чистим полученные данные
+			if (currentCart === '<script>window._applenosebook = 1</script>') {
+				currentCart = null;
+			}
+			console.log('current cart >> ', currentCart);
+
+			// если пусто, формируем пустой массив
+			if (currentCart === null) {
+				let cart = [];
+				// и пушим туда полученное с id = 1
+				cart.push(jewerly);
+			} else {
+				// ищем уникальный id
+				for (let i = 0; i < currentCart.length; i++) {
+					// если id уже существует
+					if (currentCart[i].id === i) {
+						i++;
+					} else {
+						// а если нет, то i уникален и присваивается item
+						itemID = i;
+						// закидываем уникальный id в готовый объект
+						jewerly.id = itemID;
+					}
+				}
+			}
+
+			// закидываем готовый объект в массив
+			cart.push(jewerly);
+
+			// оотправляем массив на сервер
+			sendFileAndStoreResponse();
+
+			// смотрим что получилось
+			console.log(cart);
 		} else {
+			// а если нет, то ему предложат войти
 			buy.insertAdjacentElement('afterend', alertNotAdded);
 		}
-
-		// вывод присвоенных данных в консоль
-		console.log(cartJewerly);
-
-		// отправка, обработа и получение данных cartJewerly
-		sendFileAndStoreResponse();
-
-		return cartJewerly;
 	});
 }

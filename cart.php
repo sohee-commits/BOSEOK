@@ -121,136 +121,97 @@ if ($result->num_rows > 0) {
 		<script>
     	window.userId = " . json_encode($userId) . ";
     	window.responseData = " . json_encode($response) . ";
-			console.log(responseData);
+			console.log(`data recieved >> ` + responseData);
 		</script>
 		";
 		?>
 		<script>
 			let jewerlyCart = JSON.parse(window.responseData); // str
 			if (jewerlyCart) {
-				// make jewerlyCart an array of objects
-				jewerlyCart = jewerlyCart.replaceAll('u20bd', '₽');
-				jewerlyCart = '[' + jewerlyCart + ']';
-				jewerlyCart = jewerlyCart.replace(/}{/g, '},{');
-				jewerlyCart = JSON.parse(jewerlyCart); // obj
+				jewerlyCart = JSON.parse(jewerlyCart); // arr obj
+				console.log(jewerlyCart);
+				console.log(typeof jewerlyCart);
 
-				let type;
+				jewerlyCart = jewerlyCart.map(item => ({
+					...item,
+					price: item.price.replaceAll('u20bd', '₽'),
+				}));
 
-				if (jewerlyCart.some(item => [
-					'Petite Elodie',
-					'Demi',
-					'Petite',
-					'Petite Comfort Fit Solitaire',
-					'Camellia Milgrain',
-					'Nadia',
-					'Luxe Viviana',
-					'Aria Three',
-				].includes(item.name))) {
-					type = 'Кольцо';
-				} else if (jewerlyCart.some(item => [
-					'Lunette',
-					'Versailles',
-					'Marseille',
-					'Flair',
-					'Sienna',
-					'Yvette',
-					'Ballad',
-					'Eternity',
-				].includes(item.name))) {
-					type = 'Серьги';
-				} else {
-					type = 'Ожерелье';
-				}
-
-				let cartNode = document.querySelector(`#cart-items`);
-
-				for (let i = 0; i < jewerlyCart.length; i++) {
-					cartNode.innerHTML += `
-					<article class="item">
-						<div class="image">
-							<img src="./assets/jewerly/${jewerlyCart[i]['name']}.jpg" alt="preview" />
-						</div>
-						<div class="info">
-							<div class="text">
-								<a 
-									href="./item-${jewerlyCart[i]['name'].toLowerCase()}.php" 
-									id="item-name" 
-									class="bold h2">${jewerlyCart[i]['name']}
-								</a>
-								<p class="h2" id="item-price"> ${jewerlyCart[i]['price']} </p>
-							</div>
-							<div>
-								<span class="bold">Тип:</span>
-								<span id="item-type">${type}</span>
-							</div>
-							<button id="del-item">
-								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
-							</button>
-						</div>
-					</article>
-					`;
-				}
-
-				let checkout = document.querySelector(`#checkout`);
-
-				checkout.addEventListener(`click`, () => {
-					checkout.classList.toggle(`done`);
-					let cartNode = document.querySelector(`#cart-items`);
-
-					if (checkout.classList.contains(`done`)) {
-						checkout.innerHTML = `Оформлено`;
-						cartNode.innerHTML = ``;
-						// Now you can use window.userId in your AJAX request
-						fetch('clean-cart.php', {
-							method: 'POST',
-							headers: {
-								'Content-Type': 'application/json',
-							},
-							body: JSON.stringify({ userId: window.userId }),
-						})
-							.then(response => response.json())
-							.then(data => {
-								if (data.status === 'success') {
-									console.log('Cart cleared successfully');
-								} else {
-									console.error('Failed to clear cart:', data.message);
-								}
-							})
-							.catch(error => console.error('Error:', error));
+				jewerlyCart.forEach(jewerly => {
+					if (
+						['Petite Elodie', 'Demi', 'Petite', 'Petite Comfort Fit Solitaire', 'Camellia Milgrain', 'Nadia', 'Luxe Viviana', 'Aria Three'].includes(jewerly.name)
+					) {
+						jewerly.type = 'Кольцо';
+					} else if (
+						['Lunette', 'Versailles', 'Marseille', 'Flair', 'Sienna', 'Yvette', 'Ballad', 'Eternity'].includes(jewerly.name)
+					) {
+						jewerly.type = 'Серьги';
 					} else {
-						checkout.innerHTML = `Оформить`;
+						jewerly.type = 'Ожерелье';
 					}
 				});
 
-				let delItem = document.querySelector(`#del-item`);
-				delItem.addEventListener(`click`, () => {
-					console.log(`del item clicked!`);
-					const delParent = delItem.parentElement;
-					const itemName = delParent.querySelector('#item-name').textContent;
+				let cartNode = document.querySelector(`#cart-items`);
 
-					let itemData = { userId: window.userId, itemName: itemName };
-					itemData = JSON.stringify(itemData);
-					console.log(itemData);
+				for (let item of jewerlyCart) {
+					cartNode.innerHTML += `
+				<article class="item">
+					<div class="image">
+						<img src="./assets/jewerly/${item.name}.jpg" alt="preview" />
+					</div>
+					<div class="info">
+						<div class="text">
+							<a 
+								href="./item-${item.name.toLowerCase()}.php" 
+								id="item-name" 
+								class="bold h2">${item.name}
+							</a>
+							<p class="h2" id="item-price">${item.price}</p>
+						</div>
+						<div>
+							<span class="bold">Тип:</span>
+							<span id="item-type">${item.type}</span>
+							<span class="hidden"></span>
+						</div>
+						<button id="del-item">
+							<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
+						</button>
+					</div>
+				</article>
+				`;
+				}
+			}
 
-					fetch('del-item.php', {
+			let checkout = document.querySelector(`#checkout`);
+
+			checkout.addEventListener(`click`, () => {
+				checkout.classList.toggle(`done`);
+				let cartNode = document.querySelector(`#cart-items`);
+
+				if (checkout.classList.contains(`done`)) {
+					checkout.innerHTML = `Оформлено`;
+					cartNode.innerHTML = ``;
+					fetch('clean-cart.php', {
 						method: 'POST',
 						headers: {
-							'Content-Type': 'application/x-www-form-urlencoded',
+							'Content-Type': 'application/json',
 						},
-						body: 'itemName=' + encodeURIComponent(itemName),
+						body: JSON.stringify({ userId: window.userId }),
 					})
 						.then(response => response.json())
 						.then(data => {
 							if (data.status === 'success') {
-								console.log('Item deleted successfully');
-								delParent.remove();
+								console.log('Cart cleared successfully');
 							} else {
-								console.error('Failed to remove item:', data.message);
+								console.error('Failed to clear cart:', data.message);
 							}
 						})
 						.catch(error => console.error('Error:', error));
-				});
-			}
+				} else {
+					checkout.innerHTML = `Оформить`;
+				}
+			});
+			// }
 		</script>
 	</body>
 
