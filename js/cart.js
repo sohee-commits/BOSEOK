@@ -36,7 +36,11 @@ async function sendFileAndStoreResponse() {
 console.log(window._applenosebook ? `user logged in` : `guest`);
 
 let cart = [];
-let jewerly;
+let jewerly = {
+	name: itemName,
+	price: itemPrice,
+	id: itemID,
+};
 
 if (buy) {
 	buy.addEventListener(`click`, async () => {
@@ -45,11 +49,6 @@ if (buy) {
 			buy.insertAdjacentElement('afterend', alertAdded);
 			// данные по умолчанию
 			let itemID = 1;
-			let jewerly = {
-				name: itemName,
-				price: itemPrice,
-				id: itemID,
-			};
 
 			// получаем данные user[cart]
 			let response = await fetch('get-data.php');
@@ -61,9 +60,8 @@ if (buy) {
 			}
 			console.log('current cart >> ', currentCart);
 
-			// если пусто, формируем пустой массив
+			// если пусто пушим в готовый пустой массив
 			if (currentCart === null) {
-				let cart = [];
 				// и пушим туда полученное с id = 1
 				cart.push(jewerly);
 			} else {
