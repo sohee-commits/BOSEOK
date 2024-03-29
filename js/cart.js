@@ -35,12 +35,29 @@ async function sendFileAndStoreResponse() {
 
 console.log(window._applenosebook);
 
+// так как перебор вернет ошибку если arr пустой
+// запишем туда 0
+let itemIDArr = [0];
+// по умолчанию id = 1
+let id = 1;
+
 if (buy) {
 	buy.addEventListener(`click`, async () => {
+		while (true) {
+			if (!itemIDArr.includes(id)) {
+				itemIDArr.push(id);
+				break;
+			} else {
+				id++;
+			}
+		}
+		console.log(itemIDArr);
+
 		// элемент
 		cartJewerly = {
 			name: itemName,
 			price: itemPrice,
+			// id: itemID,
 		};
 
 		if (window._applenosebook !== undefined) {
