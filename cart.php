@@ -74,13 +74,13 @@ if ($result->num_rows > 0) {
 		<?php require_once ('./header.php'); ?>
 
 		<main>
-			<p class="small">Если удаленное украшение не исчезло сразу, обновите страницу.</p>
 			<section class="cart" id="cart">
 				<section class="cart-action">
 					<p class="bold">Корзина</p>
 					<button class="btn-primary" id="checkout">Оформить</button>
 				</section>
 				<hr />
+				<!-- <p class="small">Если удаленное украшение не исчезло сразу, обновите страницу.</p> -->
 				<section class="items" id="cart-items">
 				</section>
 			</section>
@@ -119,6 +119,9 @@ if ($result->num_rows > 0) {
 		";
 		?>
 		<script>
+			setTimeout(function () {
+				location.reload();
+			}, 10000);
 			// принимаем и обрабатываем
 			let jewerlyCart = JSON.parse(window.responseData); // str
 			var cartNode = document.querySelector(`#cart-items`);
@@ -263,7 +266,22 @@ if ($result->num_rows > 0) {
 					delEl.innerHTML = ``;
 
 					// перерендерим
-					setInterval(renderCart(), 2000);
+					renderCart();
+
+					// обновим
+					setTimeout(function () {
+						location.reload();
+					}, 500);
+
+					// если почему-то не обновилось, 
+					// предложим юзеру сделать это самостоятельно
+					setTimeout(() => {
+						let p = document.createElement('p');
+						p.classList.add('small');
+						p.innerHTML = `Если удаленное украшение не исчезло сразу, обновите страницу.`;
+						cartNode.insertAdjacentElement('beforebegin', p);
+					}, 3000);
+
 				}
 			});
 		</script>
