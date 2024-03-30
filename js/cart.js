@@ -40,7 +40,7 @@ let itemID = 1;
 let jewerly = {
 	name: itemName,
 	price: itemPrice,
-	id: itemID,
+	// id: itemID,
 };
 
 if (buy) {
@@ -49,7 +49,7 @@ if (buy) {
 		if (window._applenosebook !== undefined) {
 			buy.insertAdjacentElement('afterend', alertAdded);
 			// данные по умолчанию
-			itemID = 1;
+			// itemID = 1;
 
 			// получаем данные user[cart]
 			let response = await fetch('get-data.php');
@@ -64,30 +64,32 @@ if (buy) {
 			}
 			console.log('current cart >> ', currentCart);
 
-			// если пусто пушим в готовый пустой массив
-			if (currentCart === null) {
-				// и пушим туда полученное с id = 1
-				cart.push(jewerly);
-			} else {
-				// иначе ищем уникальный id
-				while (true) {
-					// проверяем + 1 на случай, если все id по порядку заняты
-					for (let i = 0; i < currentCart.length + 1; i++) {
-						// если id уже существует
-						if (currentCart[i].id === i) {
-							// увеличиваем на 1
-							i++;
-						} else {
-							// а если нет, то i уникален и присваивается item
-							itemID = i;
-							// закидываем уникальный id в готовый объект
-							jewerly.id = itemID;
-							// закидываем готовый объект в массив
-							cart.push(jewerly);
-						}
-					}
-				}
-			}
+			// // если пусто пушим в готовый пустой массив
+			// if (currentCart === null) {
+			// 	// и пушим туда полученное с id = 1
+			// 	cart.push(jewerly);
+			// } else {
+			// 	// иначе ищем уникальный id
+			// 	while (true) {
+			// 		// проверяем + 1 на случай, если все id по порядку заняты
+			// 		for (let i = 0; i < currentCart.length + 1; i++) {
+			// 			// если id уже существует
+			// 			if (currentCart[i].id === i) {
+			// 				// увеличиваем на 1
+			// 				i++;
+			// 			} else {
+			// 				// а если нет, то i уникален и присваивается item
+			// 				itemID = i;
+			// 				// закидываем уникальный id в готовый объект
+			// 				jewerly.id = itemID;
+			// 				// закидываем готовый объект в массив
+			// 				cart.push(jewerly);
+			// 			}
+			// 		}
+			// 	}
+			// }
+
+			cart.push(jewerly);
 
 			// отправляем массив в корзину \
 			// в cart.php полученный массив отправится в бд

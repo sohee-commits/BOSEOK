@@ -120,7 +120,9 @@ if ($result->num_rows > 0) {
 		<script>
 			// принимаем и обрабатываем
 			let jewerlyCart = JSON.parse(window.responseData); // str
-			if (jewerlyCart) {
+			var cartNode = document.querySelector(`#cart-items`);
+
+			function renderCart() {
 				jewerlyCart = JSON.parse(jewerlyCart); // arr obj
 				console.log(jewerlyCart);
 				console.log(typeof jewerlyCart);
@@ -130,6 +132,13 @@ if ($result->num_rows > 0) {
 					...item,
 					price: item.price.replaceAll('u20bd', '₽'),
 				}));
+
+				// добавить id
+				jewerlyCart.forEach((jewerly, i) => {
+					jewerly.id = i++;
+				})
+
+				console.log(jewerlyCart);
 
 				// вычисляем тип украшения
 				jewerlyCart.forEach(jewerly => {
@@ -146,43 +155,41 @@ if ($result->num_rows > 0) {
 					}
 				});
 
-				var cartNode = document.querySelector(`#cart-items`);
+				// выводим
+				cartNode.innerHTML = '';
 
-				function renderCart() {
-					// выводим
-					cartNode.innerHTML = '';
-
-					for (let item of jewerlyCart) {
-						cartNode.innerHTML += `
-						<article class="item">
-							<div class="image">
-								<img src="./assets/jewerly/${item.name}.jpg" alt="preview" />
+				for (let item of jewerlyCart) {
+					cartNode.innerHTML += `
+					<article class="item">
+						<div class="image">
+							<img src="./assets/jewerly/${item.name}.jpg" alt="preview" />
+						</div>
+						<div class="info">
+							<div class="text">
+								<a 
+									href="./item-${item.name.toLowerCase()}.php" 
+									id="item-name" 
+									class="bold h2">${item.name}
+								</a>
+								<p class="h2" id="item-price">${item.price}</p>
 							</div>
-							<div class="info">
-								<div class="text">
-									<a 
-										href="./item-${item.name.toLowerCase()}.php" 
-										id="item-name" 
-										class="bold h2">${item.name}
-									</a>
-									<p class="h2" id="item-price">${item.price}</p>
-								</div>
-								<div>
-									<span class="bold">Тип:</span>
-									<span id="item-type">${item.type}</span>
-									<span class="hidden">${item.id}</span>
-								</div>
-								<button id="del-item">
-									<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
-								</button>
+							<div>
+								<span class="bold">Тип:</span>
+								<span id="item-type">${item.type}</span>
+								<span class="n">${item.id}</span>
 							</div>
-						</article>
-				`;
-					}
+							<button id="del-item">
+								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
+							</button>
+						</div>
+					</article>
+					`;
 				}
 			}
 
-			renderCart();
+			if (jewerlyCart) {
+				renderCart();
+			}
 
 			// удаление всего на кнопку офомрление
 			let checkout = document.querySelector(`#checkout`);
@@ -215,17 +222,23 @@ if ($result->num_rows > 0) {
 				}
 			});
 
-
-			cartNode.addEventListener('click', function (event) {
-				if (event.target.matches('#del-item')) {
-					let delEl = event.target.closest('.info').querySelector('.hidden');
+			cartNode.addEventListener('click', async function (evt) {
+				console.log('clicked');
+				if (evt.target.matches('#del-item')) { // не работает
+					console.log('evt matches');
+					let delEl = evt.target.closest('.info').querySelector('.hidden');
 					let delID = delEl.textContent;
 
 					// удаляем из массива jewerlyCart объект который содержит delID
-					// jewerlyCart...
-					// отправляем этот массив в базу данных
+					jewerlyCart = jewerlyCart.filter(jewerly => jewerly.id !== delID);
 
-					// 
+					// отправляем этот массив в базу данных
+					// получаем данные user[cart]
+					let response = await fetch('send-data.php');
+					jewerlyCart = await response.text();
+					console.log(jewerlyCart);
+
+					// перерендерим
 					renderCart();
 				}
 			});
