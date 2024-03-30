@@ -54,7 +54,7 @@ require_once "session.php";
 							<p class="small">
 								СКОРО ЗАКОНЧИТСЯ! <br />
 								<span class="bold">Получите бриллиантовые шпильки</span> при
-								покупке на сумму более 1000 долларов США.
+								покупке на сумму более 1000 РУБ..
 							</p>
 						</section>
 						<button class="btn-primary" id="buy-jewerly">Добавить в корзину</button>
