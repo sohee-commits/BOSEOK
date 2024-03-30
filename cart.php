@@ -74,6 +74,7 @@ if ($result->num_rows > 0) {
 		<?php require_once ('./header.php'); ?>
 
 		<main>
+			<p class="small">Если удаленное украшение не исчезло сразу, обновите страницу.</p>
 			<section class="cart" id="cart">
 				<section class="cart-action">
 					<p class="bold">Корзина</p>
@@ -87,7 +88,7 @@ if ($result->num_rows > 0) {
 				<div class="image">
 					<img src="./assets/index/where/1.png" alt="preview" />
 				</div>
-				<p class="h2 bold">Мы здесь для вас.</p>
+				<p class="h2 bold">Мы здесь для вас</p>
 				<p>
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
@@ -156,7 +157,6 @@ if ($result->num_rows > 0) {
 					}
 				});
 
-				// выводим
 				cartNode.innerHTML = '';
 
 				for (let item of jewerlyCart) {
@@ -263,7 +263,7 @@ if ($result->num_rows > 0) {
 					delEl.innerHTML = ``;
 
 					// перерендерим
-					renderCart();
+					setInterval(renderCart(), 2000);
 				}
 			});
 		</script>

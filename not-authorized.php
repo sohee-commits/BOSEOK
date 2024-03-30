@@ -44,7 +44,7 @@ if (isset($_SESSION["user"])) {
         <div class="image">
           <img src="./assets/index/where/1.png" alt="preview" />
         </div>
-        <p class="h2 bold">Мы здесь для вас.</p>
+        <p class="h2 bold">Мы здесь для вас</p>
         <p>
           Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
           подарок себе или близкому человеку.
