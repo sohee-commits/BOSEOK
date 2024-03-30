@@ -25,6 +25,8 @@ $stmt->bind_param("i", $userId);
 $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
-$currentCart = json_decode($row['cart'], true);
 
+echo $row['cart']; // что получили из бд
+
+$currentCart = json_decode($row['cart'], true);
 $currentCart = json_encode($currentCart);

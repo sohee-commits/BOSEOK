@@ -4,36 +4,45 @@
 + 2.1 в cart id добавляем в <span> с классом hidden (visibility hidden)
 ---
 3. написать get-cart.php, который будет принимать и отправлять в базу данных массив объектов для cart.js 
-3.1 юзер нажал buy
-3.2 отправляем запрос на получение user['cart'] из бд в get-data.php
-3.3 получаем из get-data.php json
-3.4.1 если json пустой, то формируем массив:
-let cart = []
-3.4.2 пушим туда сформированный объект:
++ 3.1 юзер нажал buy
++ 3.2 отправляем запрос на получение user['cart'] из бд в get-data.php
++ 3.3 получаем из get-data.php json
++ 3.4.1 если json пустой, то в js формируем массив:
++ let cart = []
++ 3.4.2 пушим туда сформированный объект:
 {
 	name: itemName,
 	price: itemPrice,
 	id: itemID,
 };
 где itemID = 1
-3.4.3 отправляем cart в cart.php
-3.5.1 если json не пустой, то записываем объект с уникальным id:
++ 3.5.1 если json не пустой, то записываем объект с уникальным id:
 while (true) {
-	if (!itemIDArr.includes(id)) {
-		itemIDArr.push(id);
-		break;
-	} else {
-		id++;
+	// проверяем + 1 на случай, если все id по порядку заняты
+	for (let i = 0; i < currentCart.length + 1; i++) {
+		// если id уже существует
+		if (currentCart[i].id === i) {
+			// увеличиваем на 1
+			i++;
+		} else {
+			// а если нет, то i уникален и присваивается item
+			itemID = i;
+			// закидываем уникальный id в готовый объект
+			jewerly.id = itemID;
+		}
 	}
 }
-3.5.2 пушим туда сформированный объект:
++ 3.5.2 пушим туда сформированный объект:
 {
 	name: itemName,
 	price: itemPrice,
 	id: itemID,
 };
++ cart.push(jewerly);
 где itemID = уникальный id, полученный в результате пункта 3.5.1
-3.5.3 отправляем cart в cart.php
++ 3.6 отправляем cart в cart.php
+3.7 новый массив отправляем в базу данных
+sendFileAndStoreResponse();
 ---
 4. на странице cart.php по нажатию на кнопку del
 4.1 получаем спрятанный в <p class="hidden"> id объекта кнопки del

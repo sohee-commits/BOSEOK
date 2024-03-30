@@ -4,8 +4,6 @@ if (!isset($_SESSION["user"])) {
 	header("Location: not-authorized.php");
 }
 
-// ОБРАБОТКА КОРЗИНЫ 
-
 // подключение бд файла для $conn(ection)
 require_once "database.php";
 
@@ -19,7 +17,6 @@ $user = $result->fetch_assoc();
 
 $userId = $user['id'];
 
-// проверяет, является ли текущий HTTP-запрос POST-запросом
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	// чтение входных данных из тела запроса
 	// и преобразование строки JSON в массив PHP
@@ -27,10 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	// преобразование в json
 	$cartData = json_encode($data);
-	// обновление данных 
-	$sql = "UPDATE users SET cart = CONCAT(COALESCE(cart, ''), '$cartData') WHERE id = $userId";
+	// вот здесь полученный массив отправляется в бд
+	$sql = "UPDATE users SET cart = '$cartData' WHERE id = $userId";
 
-	//  true, если таблица обновилась
+	//  результат - успех или ошибка
 	if ($conn->query($sql) === TRUE) {
 		echo json_encode(array("status" => "success"));
 	} else {
@@ -38,20 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 }
 
-// получение данных из базы данных
+// вот это уже отправляется на эту страницу в тег script
 $sql = "SELECT cart FROM users WHERE id = $userId";
 $result = $conn->query($sql);
 
-//  нашелся ли юзер с его корзиной
 if ($result->num_rows > 0) {
-	// fetch_assoc извлекает данные из колонки cart для пользователя 
 	$row = $result->fetch_assoc();
-	// преобразует строку JSON, содержащуюся в $row['cart'],
-	// обратно в массив PHP
-	// echo json_encode(json_decode($row['cart']));
-
 	$response = json_encode($row['cart']);
-
 	// Сохранение данных в сессии
 	$_SESSION['response'] = $response;
 } else {
@@ -117,6 +107,8 @@ if ($result->num_rows > 0) {
 		</section>
 
 		<?php
+		// тут все принимается
+		// и в window.___ сохраняется для следующего script-тега
 		echo "
 		<script>
     	window.userId = " . json_encode($userId) . ";
@@ -126,17 +118,20 @@ if ($result->num_rows > 0) {
 		";
 		?>
 		<script>
+			// принимаем и обрабатываем
 			let jewerlyCart = JSON.parse(window.responseData); // str
 			if (jewerlyCart) {
 				jewerlyCart = JSON.parse(jewerlyCart); // arr obj
 				console.log(jewerlyCart);
 				console.log(typeof jewerlyCart);
 
+				// форматируем 
 				jewerlyCart = jewerlyCart.map(item => ({
 					...item,
 					price: item.price.replaceAll('u20bd', '₽'),
 				}));
 
+				// вычисляем тип украшения
 				jewerlyCart.forEach(jewerly => {
 					if (
 						['Petite Elodie', 'Demi', 'Petite', 'Petite Comfort Fit Solitaire', 'Camellia Milgrain', 'Nadia', 'Luxe Viviana', 'Aria Three'].includes(jewerly.name)
@@ -151,37 +146,45 @@ if ($result->num_rows > 0) {
 					}
 				});
 
-				let cartNode = document.querySelector(`#cart-items`);
+				var cartNode = document.querySelector(`#cart-items`);
 
-				for (let item of jewerlyCart) {
-					cartNode.innerHTML += `
-				<article class="item">
-					<div class="image">
-						<img src="./assets/jewerly/${item.name}.jpg" alt="preview" />
-					</div>
-					<div class="info">
-						<div class="text">
-							<a 
-								href="./item-${item.name.toLowerCase()}.php" 
-								id="item-name" 
-								class="bold h2">${item.name}
-							</a>
-							<p class="h2" id="item-price">${item.price}</p>
-						</div>
-						<div>
-							<span class="bold">Тип:</span>
-							<span id="item-type">${item.type}</span>
-							<span class="hidden"></span>
-						</div>
-						<button id="del-item">
-							<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
-						</button>
-					</div>
-				</article>
+				function renderCart() {
+					// выводим
+					cartNode.innerHTML = '';
+
+					for (let item of jewerlyCart) {
+						cartNode.innerHTML += `
+						<article class="item">
+							<div class="image">
+								<img src="./assets/jewerly/${item.name}.jpg" alt="preview" />
+							</div>
+							<div class="info">
+								<div class="text">
+									<a 
+										href="./item-${item.name.toLowerCase()}.php" 
+										id="item-name" 
+										class="bold h2">${item.name}
+									</a>
+									<p class="h2" id="item-price">${item.price}</p>
+								</div>
+								<div>
+									<span class="bold">Тип:</span>
+									<span id="item-type">${item.type}</span>
+									<span class="hidden">${item.id}</span>
+								</div>
+								<button id="del-item">
+									<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
+								</button>
+							</div>
+						</article>
 				`;
+					}
 				}
 			}
 
+			renderCart();
+
+			// удаление всего на кнопку офомрление
 			let checkout = document.querySelector(`#checkout`);
 
 			checkout.addEventListener(`click`, () => {
@@ -211,7 +214,21 @@ if ($result->num_rows > 0) {
 					checkout.innerHTML = `Оформить`;
 				}
 			});
-			// }
+
+
+			cartNode.addEventListener('click', function (event) {
+				if (event.target.matches('#del-item')) {
+					let delEl = event.target.closest('.info').querySelector('.hidden');
+					let delID = delEl.textContent;
+
+					// удаляем из массива jewerlyCart объект который содержит delID
+					// jewerlyCart...
+					// отправляем этот массив в базу данных
+
+					// 
+					renderCart();
+				}
+			});
 		</script>
 	</body>
 
