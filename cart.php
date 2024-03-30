@@ -191,8 +191,6 @@ if ($result->num_rows > 0) {
 			// все возможные проверки на пустоту
 			if (
 				jewerlyCart !== null
-				&& Array.isArray(jewerlyCart)
-				&& jewerlyCart.length > 0
 			) {
 				renderCart();
 			}
@@ -244,6 +242,13 @@ if ($result->num_rows > 0) {
 					// if jewerlyCart is empty its actually null and will send NULL
 
 					// отправляем этот массив в базу данных
+					for (let i = 0; i < jewerlyCart.length; i++) {
+						// Delete the 'type' and 'id' properties
+						delete jewerlyCart[i].type;
+						delete jewerlyCart[i].id;
+					}
+					console.log('cleared jewerly >> ', jewerlyCart);
+
 					jsonData = JSON.stringify(jewerlyCart);
 					let response = await fetch('send-data.php', {
 						method: 'POST',
