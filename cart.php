@@ -122,6 +122,7 @@ if ($result->num_rows > 0) {
 			setTimeout(function () {
 				location.reload();
 			}, 10000);
+
 			// принимаем и обрабатываем
 			let jewerlyCart = JSON.parse(window.responseData); // str
 			var cartNode = document.querySelector(`#cart-items`);
@@ -275,13 +276,12 @@ if ($result->num_rows > 0) {
 
 					// если почему-то не обновилось, 
 					// предложим юзеру сделать это самостоятельно
-					setTimeout(() => {
-						let p = document.createElement('p');
-						p.classList.add('small');
-						p.innerHTML = `Если удаленное украшение не исчезло сразу, обновите страницу.`;
-						cartNode.insertAdjacentElement('beforebegin', p);
-					}, 3000);
-
+					// setTimeout(() => {
+					// let p = document.createElement('p');
+					// 	p.classList.add('small');
+					// 	p.innerHTML = `Если удаленное украшение не исчезло сразу, обновите страницу.`;
+					// 	cartNode.insertAdjacentElement('beforebegin', p);
+					// }, 3000);
 				}
 			});
 		</script>
