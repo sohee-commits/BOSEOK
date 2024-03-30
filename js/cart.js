@@ -17,7 +17,6 @@ alertNotAdded.innerHTML = `Зарегистрируйтесь или войди�
 
 // отправление и получение информацией об элементе
 async function sendFileAndStoreResponse() {
-	// преобразование элемента в json
 	let jsonData = JSON.stringify(cart);
 
 	const response = await fetch('cart.php', {
@@ -56,42 +55,23 @@ if (buy) {
 			let currentCart = await response.text();
 
 			// чистим полученные данные
-			if (
-				currentCart === '<script>window._applenosebook = 1</script>' ||
-				currentCart === '<script>window._applenosebook = 1</script>[]'
-			) {
-				currentCart = null;
-			}
-			console.log('current cart >> ', currentCart);
+			currentCart = currentCart.replace(
+				'<script>window._applenosebook = 1</script>',
+				''
+			);
+			currentCart = currentCart.replace('[]', '');
+			console.log(currentCart);
+			console.log(typeof currentCart);
 
-			// // если пусто пушим в готовый пустой массив
-			// if (currentCart === null) {
-			// 	// и пушим туда полученное с id = 1
-			// 	cart.push(jewerly);
-			// } else {
-			// 	// иначе ищем уникальный id
-			// 	while (true) {
-			// 		// проверяем + 1 на случай, если все id по порядку заняты
-			// 		for (let i = 0; i < currentCart.length + 1; i++) {
-			// 			// если id уже существует
-			// 			if (currentCart[i].id === i) {
-			// 				// увеличиваем на 1
-			// 				i++;
-			// 			} else {
-			// 				// а если нет, то i уникален и присваивается item
-			// 				itemID = i;
-			// 				// закидываем уникальный id в готовый объект
-			// 				jewerly.id = itemID;
-			// 				// закидываем готовый объект в массив
-			// 				cart.push(jewerly);
-			// 			}
-			// 		}
-			// 	}
-			// }
+			if (currentCart !== '') {
+				cart = JSON.parse(currentCart);
+			}
+
+			console.log('current cart >> ', cart);
 
 			cart.push(jewerly);
 
-			// отправляем массив в корзину \
+			// отправляем массив в корзину
 			// в cart.php полученный массив отправится в бд
 			sendFileAndStoreResponse();
 

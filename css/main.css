@@ -190,7 +190,7 @@ option {
 }
 
 .hidden {
-	visibility: hidden;
+	color: var(--white);
 }
 
 header img {

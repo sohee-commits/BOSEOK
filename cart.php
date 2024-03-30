@@ -123,9 +123,10 @@ if ($result->num_rows > 0) {
 			var cartNode = document.querySelector(`#cart-items`);
 
 			function renderCart() {
+				jewerlyCart = JSON.parse(window.responseData); // str
 				jewerlyCart = JSON.parse(jewerlyCart); // arr obj
-				console.log(jewerlyCart);
-				console.log(typeof jewerlyCart);
+				console.log('formatted >>', jewerlyCart);
+				console.log('formatted type >>', typeof jewerlyCart);
 
 				// форматируем 
 				jewerlyCart = jewerlyCart.map(item => ({
@@ -138,7 +139,7 @@ if ($result->num_rows > 0) {
 					jewerly.id = i++;
 				})
 
-				console.log(jewerlyCart);
+				console.log('id >> ', jewerlyCart);
 
 				// вычисляем тип украшения
 				jewerlyCart.forEach(jewerly => {
@@ -176,7 +177,7 @@ if ($result->num_rows > 0) {
 							<div>
 								<span class="bold">Тип:</span>
 								<span id="item-type">${item.type}</span>
-								<span class="n">${item.id}</span>
+								<span class="hidden">${item.id}</span>
 							</div>
 							<button id="del-item">
 								<img src="./assets/icons/delete.png" alt="delete" width="32" height="32" />
@@ -187,7 +188,12 @@ if ($result->num_rows > 0) {
 				}
 			}
 
-			if (jewerlyCart) {
+			// все возможные проверки на пустоту
+			if (
+				jewerlyCart !== null
+				&& Array.isArray(jewerlyCart)
+				&& jewerlyCart.length > 0
+			) {
 				renderCart();
 			}
 
@@ -222,19 +228,30 @@ if ($result->num_rows > 0) {
 				}
 			});
 
+			// удаление отдельного элемента
 			cartNode.addEventListener('click', async function (evt) {
-				console.log('clicked');
-				if (evt.target.matches('#del-item')) { // не работает
-					console.log('evt matches');
+				console.log('clicked cartNode');
+				if (evt.target.closest('#del-item')) {
+					console.log('clicked del');
 					let delEl = evt.target.closest('.info').querySelector('.hidden');
-					let delID = delEl.textContent;
+					let delID = Number(delEl.textContent);
+					console.log('del id >> ', delID, typeof delID) // 0
 
 					// удаляем из массива jewerlyCart объект который содержит delID
 					jewerlyCart = jewerlyCart.filter(jewerly => jewerly.id !== delID);
+					console.log('result jewerly >> ', jewerlyCart); // []
+					console.log('result jewerly type >> ', typeof jewerlyCart); // obj
+					// if jewerlyCart is empty its actually null and will send NULL
 
 					// отправляем этот массив в базу данных
-					// получаем данные user[cart]
-					let response = await fetch('send-data.php');
+					jsonData = JSON.stringify(jewerlyCart);
+					let response = await fetch('send-data.php', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: jsonData,
+					});
 					jewerlyCart = await response.text();
 					console.log(jewerlyCart);
 
