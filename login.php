@@ -94,7 +94,7 @@ require_once "database.php";
             $r_email = $_POST["r-email"];
             $r_password = $_POST["r-password"];
             $r_passwordRepeat = $_POST["r-password-repeat"];
-            $r_address = $_POST["r-address"];
+            $r_address = $_POST["r_address"];
 
             $r_passwordHash = password_hash($r_password, PASSWORD_DEFAULT);
 
@@ -118,8 +118,8 @@ require_once "database.php";
             } else {
               // Prepare the SQL statement
               $r_passwordHash = password_hash($r_password, PASSWORD_DEFAULT);
-              $stmt = $conn->prepare("INSERT INTO users (name, surname, parent_name, email, address, password) VALUES (?, ?, ?, ?, ?)");
-              $stmt->bind_param("sssss", $r_name, $r_surname, $r_parentName, $r_email, $r_address, $r_passwordHash);
+              $stmt = $conn->prepare("INSERT INTO users (name, surname, parent_name, email, address, password) VALUES (?, ?, ?, ?, ?, ?)");
+              $stmt->bind_param("ssssss", $r_name, $r_surname, $r_parentName, $r_email, $r_address, $r_passwordHash);
 
               // Execute the statement
               if ($stmt->execute()) {

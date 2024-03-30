@@ -260,6 +260,8 @@ if ($result->num_rows > 0) {
 					jewerlyCart = await response.text();
 					console.log(jewerlyCart);
 
+					delEl.innerHTML = ``;
+
 					// перерендерим
 					renderCart();
 				}

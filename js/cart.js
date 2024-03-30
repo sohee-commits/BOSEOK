@@ -56,7 +56,7 @@ if (buy) {
 				'<script>window._applenosebook = 1</script>',
 				''
 			);
-			currentCart = currentCart.replace('[]', '');
+			currentCart = currentCart.replace(/<script>.*?<\/script>/s, '');
 			console.log(currentCart);
 			console.log(typeof currentCart);
 
