@@ -225,6 +225,11 @@ if ($result->num_rows > 0) {
 							}
 						})
 						.catch(error => console.error('Error:', error));
+
+					// обновим
+					setTimeout(function () {
+						location.reload();
+					}, 500);
 				} else {
 					checkout.innerHTML = `Оформить`;
 				}
@@ -274,14 +279,20 @@ if ($result->num_rows > 0) {
 						location.reload();
 					}, 500);
 
-					// если почему-то не обновилось, 
+					// если почему-то не обновилось через 3 секунды, 
 					// предложим юзеру сделать это самостоятельно
-					// setTimeout(() => {
-					// let p = document.createElement('p');
-					// 	p.classList.add('small');
-					// 	p.innerHTML = `Если удаленное украшение не исчезло сразу, обновите страницу.`;
-					// 	cartNode.insertAdjacentElement('beforebegin', p);
-					// }, 3000);
+					let helpUser = () => {
+						let p = document.createElement('p');
+						p.classList.add('small');
+						p.innerHTML = `Если удаленное украшение не исчезло сразу, обновите страницу.`;
+						cartNode.insertAdjacentElement('beforebegin', p);
+					}
+
+					setTimeout(function () {
+						helpUser();
+						location.reload();
+					}, 3000);
+
 				}
 			});
 		</script>
