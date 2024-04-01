@@ -45,28 +45,28 @@ require_once "session.php";
 					<!-- card -->
 					<a href="./rings.php" class="card">
 						<div class="image">
-							<img src="./assets/index/categories/1.png" alt="rings" />
+							<img src="./assets/index/categories/1.png" alt="rings" loading="lazy" />
 						</div>
 						<p class="bold">Кольца</p>
 					</a>
 					<!-- card -->
 					<a href="./earrings.php" class="card">
 						<div class="image">
-							<img src="./assets/index/categories/2.png" alt="earrings" />
+							<img src="./assets/index/categories/2.png" alt="earrings" loading="lazy" />
 						</div>
 						<p class="bold">Серьги</p>
 					</a>
 					<!-- card -->
 					<a href="./jewerly.php" class="card">
 						<div class="image">
-							<img src="./assets/index/categories/3.png" alt="jewerly" />
+							<img src="./assets/index/categories/3.png" alt="jewerly" loading="lazy" />
 						</div>
 						<p class="bold">Ювелирные изделия</p>
 					</a>
 					<!-- card -->
 					<a href="#collections" class="card">
 						<div class="image">
-							<img src="./assets/index/categories/4.png" alt="rings" />
+							<img src="./assets/index/categories/4.png" alt="rings" loading="lazy" />
 						</div>
 						<p class="bold">Коллекции</p>
 					</a>
@@ -74,7 +74,7 @@ require_once "session.php";
 			</section>
 
 			<section class="sale">
-				<img src="./assets/index/sale/1.png" alt="sale" />
+				<img src="./assets/index/sale/1.png" alt="sale" loading="lazy" />
 				<div class="text">
 					<p>ПОСЛЕДНИЙ ДЕНЬ!</p>
 					<p>
@@ -89,7 +89,7 @@ require_once "session.php";
 				<!-- collection -->
 				<section class="coll">
 					<div class="image">
-						<img src="./assets/index/collections/1.png" alt="preview" />
+						<img src="./assets/index/collections/1.png" alt="preview" loading="lazy" />
 					</div>
 					<p class="h2 bold">Коллекция YeonHwa</p>
 					<p>
@@ -101,7 +101,7 @@ require_once "session.php";
 				<!-- collection -->
 				<section class="coll">
 					<div class="image">
-						<img src="./assets/index/collections/2.png" alt="preview" />
+						<img src="./assets/index/collections/2.png" alt="preview" loading="lazy" />
 					</div>
 					<p class="h2 bold">Коллекция HwaYang</p>
 					<p>
@@ -123,13 +123,13 @@ require_once "session.php";
 					<a href="./jewerly.php" class="btn bold">Открыть</a>
 				</div>
 				<div class="image">
-					<img src="./assets/index/gift/1.png" alt="image" />
+					<img src="./assets/index/gift/1.png" alt="image" loading="lazy" />
 				</div>
 			</section>
 
 			<section class="where">
 				<div class="image">
-					<img src="./assets/index/where/1.png" alt="preview" />
+					<img src="./assets/index/where/1.png" alt="preview" loading="lazy" />
 				</div>
 				<p class="h2 bold">Мы здесь для вас</p>
 				<p>
