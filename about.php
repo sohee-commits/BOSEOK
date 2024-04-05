@@ -64,11 +64,6 @@ require_once "session.php";
         </p>
         <a href="https://yandex.ru/maps/-/CDFvFIkT" target="_blank" class="btn-secondary">Посмотреть на карте</a>
       </section>
-
-      <section class="inspo">
-        <p class="h2 bold">Вдохновение</p>
-        <div class="images"></div>
-      </section>
     </main>
 
     <?php require_once ('./footer.php'); ?>
