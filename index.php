@@ -131,7 +131,7 @@ require_once "session.php";
 				<div class="image">
 					<img src="./assets/index/where/1.png" alt="preview" loading="lazy" />
 				</div>
-				<p class="h2 bold">Мы здесь для вас</p>
+				<р class="h2 bold">Мы здесь для вас</р>
 				<p>
 					Сделайте свой наряд более индивидуальным, чем когда-либо. Идеальный
 					подарок себе или близкому человеку.
